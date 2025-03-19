@@ -1,0 +1,6 @@
+services:
+  - name: hao_dao
+    type: web
+    runtime: static
+    staticPublishPath: ./test-project/public
+    env: static
