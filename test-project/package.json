@@ -5,10 +5,17 @@
 	"author": "First Last <first.last@example.com>",
 	"main": "server.js",
 	"scripts": {
-		"start": "node server.js",
+		"start": "nodemon server.js",
+		"dev": "browser-sync start --config bs-config.js",
 		"test": " REGRESSION_TESTING=true npm start"
 	},
 	"dependencies": {
-		"express": "^4.16.1"
+		"express": "^4.21.2",
+		"force-graph": "^1.49.4",
+		"gsap": "^3.12.7"
+	},
+	"devDependencies": {
+		"browser-sync": "^3.0.3",
+		"nodemon": "^3.1.9"
 	}
 }

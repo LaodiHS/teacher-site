@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>张浩道：一场穿越诗歌与文明的旅程</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="./css/playfair_display.css" rel="stylesheet">
+  <link href="./css/ma_shan_zheng.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Language Toggle -->
+  <div class="language-toggle">
+    <button id="toggle-chinese">中文</button>
+    <button id="toggle-english">English</button>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="calligraphy">张浩道</h1>
+      <h2>一场穿越诗歌与文明的旅程</h2>
+      <p class="quote">“昔我往矣，杨柳依依。今我来思，雨雪霏霏。” —《诗经》</p>
+    </div>
+    <div class="scroll-down">↓ Scroll Down ↓</div>
+  </section>
+
+  <!-- About Me Section -->
+  <section class="about-me">
+    <div class="profile">
+      <img src="/images/hao_dao.jpg" alt="Hasan Seirafi (强浩道)" class="profile-img">
+      <div class="bio">
+        <h2>关于我 / About Me</h2>
+        <p>
+          我是一名敬业且富有创新精神的英语教育工作者，拥有历史、语言学和技术领域的深厚背景。在教育、课程开发和教学设计方面拥有 12 年以上经验。精通利用技术提升语言习得和学生参与度。擅长跨文化沟通，为不同学生调整课程，并整合数字工具以实现互动式课堂体验。曾在中国居住三个月，深入体验当地文化和语言环境。希望在中国找到一份英语教学职位，充分发挥我的语言学专业知识和技术能力，为学生提供高质量的英语教育。
+        </p>
+      
+      </div>
+    </div>
+  </section>
+
+  <!-- ForceGraph3D Section -->
+  <section class="force-graph-section">
+    <h2>汉字形态学 (用鼠标悬停在节点上查看文本)/ Chinese Character Morphology (use mouse to hover over nodes)</h2>
+    <div id="force-graph-container"></div>
+    <p class="graph-description">
+      这个 3D 图形展示了汉字的形态结构，包括部首和字义之间的关系。点击节点以查看更多信息。
+      <br>
+      This 3D graph illustrates the morphology of Chinese characters, including the relationships between radicals and meanings. Click on nodes to explore further.
+    </p>
+  </section>
+
+  <!-- Journey Sections -->
+  <section class="journey parallax" id="chang-an" style="background-image: url('/images/garden_round_symbol_1.jpg');">
+    <div class="content">
+      <h2>古都长安：帝王与士人的回响</h2>
+      <p>当我抵达西安，长安古都的辉煌似乎仍未消散。城墙之上，我仿佛听见千年前的马蹄声回荡；大雁塔下，我想象玄奘法师西行归来的场景；兵马俑的沉默目光，凝视着千年的风雨，守护着曾经不可一世的秦国英魂。</p>
+    </div>
+  </section>
+
+  <!-- Cartogram Section -->
+  <section class="cartogram-section">
+    <h2>中国古典文学地图 / Classical Literature Map of China</h2>
+    <div id="cartogram-container"></div>
+    <p class="cartogram-description">
+      这个地图展示了中国各省份的古典文学作品。将鼠标悬停在省份上以查看详细信息。
+      <br>
+      This map shows classical literary works from different provinces in China. Hover over a province to see details.
+    </p>
+  </section>
+
+  <section class="journey parallax" id="huangshan" style="background-image: url('/images/chines_lake_with_bridge.jpg');">
+    <div class="content">
+      <h2>巍巍黄山：山水之间的仙境</h2>
+      <p>黄山的云雾，如梦如幻，仿佛每一座山峰都是一幅水墨画，每一棵迎客松都在诉说着时间的故事。我清晨登顶，看见日出将云海染成金色，心中生出敬畏之情。这不只是大自然的鬼斧神工，更是中华文化里天人合一的具象化。</p>
+    </div>
+  </section>
+
+  <!-- Collapsible Tree Section -->
+  <section class="collapsible-tree-section">
+    <h2>中国古代王朝与神话 / Ancient Chinese Kingdoms and Myths (Requries Large Display)</h2>
+    <div class="tree-wrapper"> <!-- Parent wrapper -->
+    <div id="info-bar"></div> <!-- Information bar added here -->
+    <div id="collapsible-tree-container"></div>
+    </div>
+  
+    <p class="tree-description">
+      这个交互式树图展示了中国古代王朝、统治者及其相关的神话传说。点击节点以查看更多信息。
+      <br>
+      This interactive tree diagram shows ancient Chinese kingdoms, rulers, and associated myths. Click on nodes to explore further.
+    </p>
+  
+  </section>
+
+  <section class="journey parallax" id="chengdu" style="background-image: url('/images/sage_of_the_city.jpg');">
+    <div class="content">
+      <h2>人间成都：闲适的烟火气息</h2>
+      <p>在成都，生活的节奏缓慢如流水。茶馆里，人们品茗、对弈、谈笑风生。我在锦里古街徘徊，感受这座城市的悠然自得；在武侯祠前驻足，回望三国风云变幻；夜晚，品尝麻辣火锅，辣意翻腾，仿佛巴蜀人的豪爽热情在舌尖绽放。</p>
+    </div>
+  </section>
+
+<!-- Add this section below your existing content -->
+<!-- <section class="poverty-viz-section">
+  <h2>中国扶贫成就 / China's Poverty Alleviation</h2>
+  <div class="viz-container">
+    <div id="timeline-counter" class="counter"></div>
+    <svg id="poverty-chart"></svg>
+    <div class="viz-controls">
+      <button id="play-pause">▶ Play</button>
+      <div id="year-slider"></div>
+    </div>
+  </div>
+  <p class="viz-description">
+    自1978年以来，中国已使超过8亿人摆脱贫困 / Since 1978, China has lifted over 800 million people out of poverty
+  </p>
+</section> -->
+
+<section class="poverty-viz-section">
+  <p class="viz-description">
+    自1978年以来，中国已使超过8亿人摆脱贫困 / Since 1978, China has lifted over 800 million people out of poverty
+  </p>
+  <div id="poverty-viz-container"></div>
+</section>
+
+  <section class="journey parallax" id="shanghai" style="background-image: url('/images/stunning_symbol.jpg');">
+    <div class="content">
+      <h2>海上上海：现代与古典的交融</h2>
+      <p>当我站在上海的外滩，东方明珠的灯光倒映在黄浦江上，现代与历史交织成一幅令人惊叹的画卷。我漫步在弄堂之中，感受石库门的怀旧气息；在豫园品茶，想象明代文人闲坐赏景的光景。上海，这座城市，既承载着千年的文化底蕴，也在新时代焕发出新的辉煌。</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2023 张浩道. 版权所有.</p>
+  </footer>
+
+  <!-- GSAP Script -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/fonts/helvetiker_regular.typeface.json"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+  <script src="./data/gsap.min.js"></script>
+  <script src="./data/ScrollTrigger.min.js"></script>
+    <!-- ForceGraph3D Script -->
+    <script src="./data/3d-force-graph"></script>
+    <script type="module">
+      import { createForceGraph } from './js/force-graph-module.js';
+      const container = document.getElementById('force-graph-container');
+      createForceGraph(container);
+    </script>
+    <script src="./data/d3.v7.min.js"></script>
+      <!-- Cartogram Script -->
+  <script type="module">
+    import { createCartogram } from './js/cartogram-module.js';
+    const container = document.getElementById('cartogram-container');
+    createCartogram(container);
+  </script>
+
+<!-- Tree Script -->
+<script type="module">
+  import { createCollapsibleTree } from './js/collapsible-tree-module.js';
+  const container = document.getElementById('collapsible-tree-container');
+  createCollapsibleTree(container);
+</script>
+
+<script type="module">
+  import { createPovertyViz } from './js/poverty-viz-module.js';
+  createPovertyViz(document.getElementById('poverty-viz-container'));
+</script>
+  <script src="js/main.js"></script>
+</body>
+</html>
