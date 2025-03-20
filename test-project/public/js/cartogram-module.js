@@ -79,7 +79,7 @@ export function createCartogram(container) {
           // Display the classical works
           svg.append("text")
             .attr("x", width / 2)
-            .attr("y", height  ) // Adjust this value to ensure visibility
+            .attr("y", height - 500 ) // Adjust this value to ensure visibility
             .attr("text-anchor", "middle")
             .attr("font-size", "16px")
             .attr("fill", "#333")
