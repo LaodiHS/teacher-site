@@ -78,8 +78,8 @@ export function createCartogram(container) {
         if (province) {
           // Display the classical works
           svg.append("text")
-            .attr("x", width / 6)
-            .attr("y", 100 ) // Adjust this value to ensure visibility
+            .attr("x", width / 20)
+            .attr("y", 150 ) // Adjust this value to ensure visibility
             .attr("dominant-baseline", "hanging")
             .attr("font-size", "16px")
             .attr("fill", "#333")
