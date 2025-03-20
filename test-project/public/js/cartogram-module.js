@@ -78,9 +78,9 @@ export function createCartogram(container) {
         if (province) {
           // Display the classical works
           svg.append("text")
-            .attr("x", width / 2)
-            .attr("y", height - 500 ) // Adjust this value to ensure visibility
-            .attr("text-anchor", "middle")
+            .attr("x", width / 4)
+            .attr("y", 10 ) // Adjust this value to ensure visibility
+            .attr("dominant-baseline", "hanging")
             .attr("font-size", "16px")
             .attr("fill", "#333")
             .text(`${province.name}: ${province.works}`);
