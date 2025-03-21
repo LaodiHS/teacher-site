@@ -11,8 +11,8 @@
 <body>
   <!-- Language Toggle -->
   <div class="language-toggle">
-    <button id="toggle-chinese">中文</button>
-    <button id="toggle-english">English</button>
+    <button id="toggle-chinese" aria-label="Switch to Chinese">中文</button>
+    <button id="toggle-english" aria-label="Switch to English">English</button>
   </div>
 
   <!-- Hero Section -->
@@ -131,13 +131,17 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2023 张浩道. 版权所有.</p>
+    <p>© <span id="year"></span> 张浩道. 版权所有.</p>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
   </footer>
 
-  <!-- GSAP Script --><script src="./data/d3.v7.min.js"></script>
-    <script src="./data/3d-force-graph.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/fonts/helvetiker_regular.typeface.json"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+  <!-- GSAP Script -->
+  <script src="./data/d3.v7.min.js"></script>
+  <script src="./data/3d-force-graph.js"></script>
+  <script src="./data/helvetiker_regular.typeface.json"></script>
+  <script src="./js/OrbitControls.js"></script>
   <script src="./data/gsap.min.js"></script> 
   <script src="./data/ScrollTrigger.min.js"></script>
     <!-- ForceGraph3D Script -->
