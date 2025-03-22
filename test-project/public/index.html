@@ -144,26 +144,26 @@
   <script src="./js/OrbitControls.js"></script>
   <script src="./data/gsap.min.js"></script> 
   <script src="./data/ScrollTrigger.min.js"></script>
-    <!-- ForceGraph3D Script -->
-   
+    
+  <!-- ForceGraph3D Script --> 
     <script type="module">
       import { createForceGraph } from './js/force-graph-module.js';
-      const container = document.getElementById('force-graph-container');
-      createForceGraph(container);
+      const ForceGraphContainer = document.getElementById('force-graph-container');
+      createForceGraph(ForceGraphContainer);
     </script>
    
       <!-- Cartogram Script -->
   <script type="module">
     import { createCartogram } from './js/cartogram-module.js';
-    const container = document.getElementById('cartogram-container');
-    createCartogram(container);
+    const CartogramContainer = document.getElementById('cartogram-container');
+    createCartogram(CartogramContainer);
   </script>
 
 <!-- Tree Script -->
 <script type="module">
   import { createCollapsibleTree } from './js/collapsible-tree-module.js';
-  const container = document.getElementById('collapsible-tree-container');
-  createCollapsibleTree(container);
+  const CollapsibleTreeContainer = document.getElementById('collapsible-tree-container');
+  createCollapsibleTree(CollapsibleTreeContainer);
 </script>
 
 <script type="module">
