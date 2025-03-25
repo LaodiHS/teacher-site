@@ -380,4 +380,145 @@ footer {
   border-radius: 4px;
   cursor: pointer;
 }
+.daoism-flow-section {
+  margin: 2rem auto;
+  max-width: 1200px;
+}
 
+#daoism-flow-container {
+  width: 100%;
+  height: 900px;
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  pointer-events: none;
+  font-family: Arial;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.slider {
+  margin: 20px 0;
+  width: 100%;
+  max-width: 300px;
+}
+
+.legend {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.annotation {
+  font-size: 12px;
+  fill: #333;
+}
+
+.flow-path {
+  mix-blend-mode: multiply;
+  transition: opacity 0.3s;
+}
+
+.graph-description {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.daoism-tooltip {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    pointer-events: none;
+    z-index: 1000;
+    max-width: 300px;
+    line-height: 1.4;
+}
+
+.node {
+    stroke: #fff;
+    stroke-width: 1.5px;
+    transition: opacity 0.3s;
+}
+
+.flow-path {
+    mix-blend-mode: multiply;
+    transition: opacity 0.3s;
+}
+
+.city-label {
+    font-family: Arial, sans-serif;
+    fill: #333;
+    text-shadow: 0 0 2px white;
+    transition: opacity 0.3s;
+}
+
+.master-marker {
+  fill: #d62728;
+  stroke: #fff;
+  stroke-width: 1.5px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.master-marker:hover {
+  opacity: 1;
+  stroke-width: 2px;
+}
+
+.master-label {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  pointer-events: none;
+  text-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+.daoism-tooltip strong {
+  color: #d62728;
+}
+
+.daoism-tooltip span {
+  color: #666;
+  font-size: 0.9em;
+}
+.master-header {
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+.master-number {
+  color: #d62728;
+  font-weight: bold;
+}
+.master-name {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.master-dates {
+  color: #666;
+  font-style: italic;
+  margin: 4px 0;
+}
+.master-subheader {
+  font-weight: bold;
+  margin: 8px 0 4px 0;
+  color: #444;
+}
+.master-contribs li {
+  margin: 4px 0;
+  line-height: 1.4;
+}
+.master-works {
+  font-family: monospace;
+  color: #336699;
+}
