@@ -248,7 +248,7 @@ export function createDaoismFlowMap(container) {
             .attr("fill", colorScale(school));
     });
 
-    d3.json("https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson")
+    d3.json("./data/countries_1.geojson")
         .then(function (china) {
             const chinaFeatures = china.features.filter(d => d.properties.ADMIN === "China");
 
