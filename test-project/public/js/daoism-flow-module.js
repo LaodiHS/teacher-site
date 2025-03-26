@@ -1,7 +1,9 @@
-import { geoMercator, geoPath } from 'https://cdn.jsdelivr.net/npm/d3-geo@3/+esm';
-import { scaleOrdinal, scaleSqrt } from 'https://cdn.jsdelivr.net/npm/d3-scale@4/+esm';
-import { schemeCategory10 } from 'https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3/+esm';
 
+const schemeCategory10= d3.schemeCategory10
+const scaleOrdinal = d3.scaleOrdinal;
+const scaleSqrt = d3.scaleSqrt
+const geoPath = d3.geoPath;
+const geoMercator = d3.geoMercator;
 export function createDaoismFlowMap(container) {
     const width = 1200, height = 900;
     const currentYear = parseInt(d3.select("#yearSlider").property("value"), 10);
