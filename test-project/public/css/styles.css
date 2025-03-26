@@ -581,3 +581,220 @@ footer {
       margin: 6px 0;
   }
 }
+
+
+
+   /* COMPONENT RESET (doesn't affect parent page) */
+   .scripture-component * {
+    all: initial; /* Reset all inherited styles */
+    display: revert; /* Reset display properties */
+    box-sizing: border-box; /* Consistent sizing */
+  }
+  
+  /* COMPONENT CONTAINER */
+  .scripture-component {
+    display: block;
+    max-width: 780px;
+    margin: 2rem auto;
+    font-family: 'Nunito', sans-serif;
+    background: #fff9f2;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    overflow: hidden; /* Contain all child elements */
+  }
+
+  /* TYPOGRAPHY */
+  .scripture-component__title {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: center;
+    color: transparent;
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin: 0;
+    padding: 2rem 1rem 1rem;
+    line-height: 1.2;
+  }
+
+  /* SECTIONS */
+  .scripture-component__section {
+    padding: 1.5rem 2rem;
+    margin: 0;
+    background: rgba(255,255,255,0.95);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .scripture-component__section:last-child {
+    border-bottom: none;
+  }
+
+  /* HEADINGS */
+  .scripture-component__heading {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+    color: #5d4037;
+    margin: 0 0 1rem 0;
+    padding: 0;
+  }
+
+  /* TEXT BLOCKS */
+  .scripture-component__text {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin: 1.5rem 0;
+    padding: 0;
+  }
+
+  /* SEMANTIC COLOR CLASSES */
+  .scripture-component__dao {
+    color: #9C27B0;
+    font-weight: 700;
+  }
+
+  .scripture-component__creation {
+    color: #45B7D1;
+    border-bottom: 2px dotted currentColor;
+  }
+
+  .scripture-component__stillness {
+    color: #4ECDC4;
+    font-style: italic;
+  }
+
+  .scripture-component__desire {
+    color: #FF6B6B;
+    font-weight: 700;
+  }
+
+  .scripture-component__purity {
+    color: #96CEB4;
+  }
+
+  .scripture-component__wisdom {
+    color: #FFB347;
+  }
+
+  .scripture-component__poisons {
+    color: #795548;
+    text-decoration: wavy underline;
+  }
+
+  /* SPECIAL EFFECTS */
+  .scripture-component__sparkle {
+    position: relative;
+    display: inline-block;
+  }
+
+  .scripture-component__sparkle::after {
+    content: '✨';
+    position: absolute;
+    right: -1.2em;
+    top: -0.5em;
+    opacity: 0.6;
+    font-size: 0.8em;
+  }
+
+  /* FIRST LETTER STYLING */
+  .scripture-component__text::first-letter {
+    font-family: 'Pacifico', cursive;
+    font-size: 2em;
+    color: #FF6B6B;
+    float: left;
+    margin-right: 0.2em;
+    line-height: 0.8;
+  }
+
+
+    /* 组件样式 (完全独立) */
+    .qingjing-component * {
+      all: initial;
+      display: revert;
+      box-sizing: border-box;
+    }
+    
+    .qingjing-component {
+      display: block;
+      max-width: 780px;
+      margin: 2rem auto;
+      font-family: 'Noto Serif SC', serif;
+      background: #fff9f2;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+
+    /* 中文特有排版 */
+    .qingjing-component__title {
+      font-family: 'Ma Shan Zheng', cursive;
+      font-size: clamp(2rem, 5vw, 3rem);
+      text-align: center;
+      color: #5d4037;
+      margin: 0;
+      padding: 2rem 1rem 1rem;
+      line-height: 1.4;
+      letter-spacing: 2px;
+    }
+
+    .qingjing-component__section {
+      padding: 1.5rem 2rem;
+      margin: 0;
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .qingjing-component__heading {
+      font-family: 'Ma Shan Zheng', cursive;
+      font-size: 1.5rem;
+      color: #8c5e3a;
+      margin: 0 0 1rem 0;
+      padding: 0;
+    }
+
+    .qingjing-component__text {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.2rem;
+      line-height: 2.2;
+      color: #333;
+      margin: 1.5rem 0;
+      padding: 0;
+      text-align: justify;
+      text-justify: inter-character;
+    }
+
+    /* 道教关键词样式 */
+    .qingjing-component__dao {
+      color: #9C27B0;
+      font-weight: 700;
+    }
+
+    .qingjing-component__creation {
+      color: #45B7D1;
+      border-bottom: 1px dotted currentColor;
+    }
+
+    .qingjing-component__stillness {
+      color: #4ECDC4;
+      font-style: italic;
+    }
+
+    .qingjing-component__desire {
+      color: #FF6B6B;
+    }
+
+    .qingjing-component__purity {
+      color: #96CEB4;
+    }
+
+    /* 首字下沉 */
+    .qingjing-component__text::first-letter {
+      font-family: 'Ma Shan Zheng', cursive;
+      font-size: 2.5em;
+      color: #8c5e3a;
+      float: left;
+      margin-right: 0.2em;
+      line-height: 0.8;
+      padding-top: 0.3em;
+    }

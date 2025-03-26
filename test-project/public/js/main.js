@@ -184,7 +184,62 @@ const chineseContent = {
   shanghaiTitle: "海上上海：现代与古典的交融",
   shanghaiText: "当我站在上海的外滩，东方明珠的灯光倒映在黄浦江上...",
   zhouTitle: "采薇 小雅",
-  zhouText:"周虽旧邦，其命维新"
+  zhouText:"周虽旧邦，其命维新",
+  stillnessTitle: "太上老君说常清静经",
+  stillnessText:`<!-- 清静经中文版 -->
+<div class="qingjing-component">
+  <h1 class="qingjing-component__title">太上老君说常清静经</h1>
+  
+  <div class="qingjing-component__section">
+    <h2 class="qingjing-component__heading">▪ 大道章 ▪</h2>
+    <p class="qingjing-component__text">
+      <span class="qingjing-component__dao">老君曰：</span><br>
+      "<span class="qingjing-component__dao">大道无形</span>，<br>
+      <span class="qingjing-component__creation">生育天地</span>；<br>
+      <span class="qingjing-component__dao">大道无情</span>，<br>
+      <span class="qingjing-component__creation">运行日月</span>；<br>
+      <span class="qingjing-component__dao">大道无名</span>，<br>
+      <span class="qingjing-component__creation">长养万物</span>。<br>
+      吾不知其名，<br>
+      强名曰<span class="qingjing-component__dao">道</span>。"
+    </p>
+  </div>
+
+  <div class="qingjing-component__section">
+    <h2 class="qingjing-component__heading">▪ 清静章 ▪</h2>
+    <p class="qingjing-component__text">
+      "夫人神好<span class="qingjing-component__purity">清</span>，<br>
+      而心扰之；<br>
+      人心好<span class="qingjing-component__stillness">静</span>，<br>
+      而<span class="qingjing-component__desire">欲</span>牵之。<br>
+      常能遣其<span class="qingjing-component__desire">欲</span>，<br>
+      而心自<span class="qingjing-component__stillness">静</span>；<br>
+      <span class="qingjing-component__purity">澄</span>其心，<br>
+      而神自<span class="qingjing-component__purity">清</span>。"
+    </p>
+    
+    <p class="qingjing-component__text">
+      自然<span class="qingjing-component__desire">六欲</span>不生，<br>
+      <span class="qingjing-component__desire">三毒</span>消灭。<br>
+      所以不能者，<br>
+      为心未<span class="qingjing-component__purity">澄</span>，<br>
+      <span class="qingjing-component__desire">欲</span>未遣也。
+    </p>
+  </div>
+
+  <div class="qingjing-component__section">
+    <h2 class="qingjing-component__heading">▪ 得道章 ▪</h2>
+    <p class="qingjing-component__text">
+      "<span class="qingjing-component__dao">道</span>者，<br>
+      有<span class="qingjing-component__purity">清</span>有<span class="qingjing-component__stillness">静</span>，<br>
+      <span class="qingjing-component__creation">天清地浊</span>，<br>
+      <span class="qingjing-component__creation">天动地静</span>。<br>
+      人能常<span class="qingjing-component__purity">清静</span>，<br>
+      <span class="qingjing-component__creation">天地</span>悉皆归。"
+    </p>
+  </div>
+</div>`
+
 };
 
 const englishContent = {
@@ -370,7 +425,63 @@ const englishContent = {
   shanghaiTitle: "Shanghai: Where Modernity Meets Tradition",
   shanghaiText: "As I stood on the Bund, the lights of the Oriental Pearl Tower shimmering over the Huangpu River...",
   zhouTitle:"Cai Wei in Xiao Ya",
-  zhouText:"Zhou may be an old state, but its mandate is ever-renewed."
+  zhouText:"Zhou may be an old state, but its mandate is ever-renewed.",
+  stillnessTitle:"Scripture of Clarity & Stillness",
+  stillnessText:`<!-- COMPONENT STARTS HERE -->
+<div class="scripture-component">
+  <h1 class="scripture-component__title scripture-component__sparkle">Scripture of Clarity & Stillness</h1>
+  
+  <div class="scripture-component__section">
+    <h2 class="scripture-component__heading">🌌 Opening Passage</h2>
+    <p class="scripture-component__text">
+      <span class="scripture-component__dao">Laozi said:</span><br>
+      "<span class="scripture-component__dao">The Great Dao is without form</span>,<br>
+      Yet it <span class="scripture-component__creation">gives birth to heaven and earth</span>.<br>
+      <span class="scripture-component__dao">The Great Dao is without desire</span>,<br>
+      Yet it <span class="scripture-component__creation">governs the sun and moon</span>.<br>
+      <span class="scripture-component__dao">The Great Dao is without name</span>,<br>
+      Yet it <span class="scripture-component__creation">nourishes all things</span>.<br>
+      I do not know its name,<br>
+      So I call it the <span class="scripture-component__dao">Dao</span>."
+    </p>
+  </div>
+
+  <div class="scripture-component__section">
+    <h2 class="scripture-component__heading">🌸 On Clarity & Stillness</h2>
+    <p class="scripture-component__text">
+      "The human heart loves <span class="scripture-component__purity">clarity</span>,<br>
+      Yet <span class="scripture-component__desire">turmoil and desire</span> disturb it.<br>
+      If one can rid the heart of <span class="scripture-component__desire">desire</span>,<br>
+      The mind will naturally become <span class="scripture-component__stillness">still</span>.<br>
+      <span class="scripture-component__purity">Purify the heart</span> and quiet the thoughts,<br>
+      And the inner self will settle into <span class="scripture-component__stillness">peace</span>.
+    </p>
+    
+    <p class="scripture-component__text">
+      When the <span class="scripture-component__desire">six desires</span> do not arise,<br>
+      And the <span class="scripture-component__poisons">three poisons</span> are extinguished,<br>
+      Who then can disturb such <span class="scripture-component__stillness">stillness</span>?
+    </p>
+  </div>
+
+  <div class="scripture-component__section">
+    <h2 class="scripture-component__heading">🌈 Closing Passage</h2>
+    <p class="scripture-component__text">
+      "The <span class="scripture-component__dao">Dao</span> is always <span class="scripture-component__stillness">still</span> and <span class="scripture-component__purity">pure</span>,<br>
+      <span class="scripture-component__creation">Heaven and earth</span> both return to it.<br>
+      All beings who can cultivate this <span class="scripture-component__purity">clarity</span> and <span class="scripture-component__stillness">stillness</span><br>
+      Will align themselves with the <span class="scripture-component__dao">eternal Dao</span>.
+    </p>
+    
+    <p class="scripture-component__text">
+      Those who truly understand this <span class="scripture-component__wisdom">teaching</span><br>
+      Will attain the <span class="scripture-component__dao">Dao</span> and <span class="scripture-component__wisdom">transcend the mundane</span>.<br>
+      Those who spread this <span class="scripture-component__wisdom">wisdom</span><br>
+      Will receive <span class="scripture-component__wisdom">boundless merit</span>."
+    </p>
+  </div>
+</div>
+<!-- COMPONENT ENDS HERE -->`
 };
 
 function setLanguage(lang) {
@@ -390,6 +501,11 @@ function setLanguage(lang) {
   document.querySelector("#shanghai p").textContent = content.shanghaiText;
   document.querySelector("#zhou h2").textContent = content.zhouTitle;
   document.querySelector("#zhou p").textContent = content.zhouText;
+ // document.querySelector("#stillness h2").innerHTML = content.stillnessTitle;
+  document.querySelector("#stillness-content").innerHTML = content.stillnessText;
+
+  
+
 }
 
 document.getElementById("toggle-chinese").addEventListener("click", () => setLanguage("chinese"));
