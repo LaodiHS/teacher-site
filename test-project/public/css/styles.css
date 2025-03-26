@@ -522,3 +522,61 @@ footer {
   font-family: monospace;
   color: #336699;
 }
+
+/* Tooltip styling */
+.daoism-tooltip {
+  pointer-events: auto !important; /* Allow interaction on mobile */
+}
+
+.tooltip-header {
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  font-size: 1.1em;
+}
+
+.tooltip-row {
+  margin: 5px 0;
+}
+
+.tooltip-label {
+  color: #666;
+  font-weight: bold;
+  display: inline-block;
+  min-width: 70px;
+}
+
+.tooltip-desc {
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+.tooltip-year {
+  font-style: italic;
+  color: #555;
+}
+
+.tooltip-close {
+  color: #888;
+}
+
+.tooltip-close:hover {
+  color: #555;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .daoism-tooltip {
+      transform: translate(-50%, -110%) !important;
+      max-width: 80vw !important;
+  }
+  
+  .tooltip-header {
+      font-size: 1.2em;
+  }
+  
+  .tooltip-row {
+      margin: 6px 0;
+  }
+}
