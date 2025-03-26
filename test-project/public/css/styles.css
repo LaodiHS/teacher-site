@@ -330,7 +330,8 @@ footer {
   }
   
   .node text {
-    display: none; /* Hide text on smallest screens */
+    /* display: none; */
+     /* Hide text on smallest screens */
   }
   
   .node:hover text {
@@ -446,7 +447,7 @@ footer {
 }
 
 .node {
-    stroke: #fff;
+    /* stroke: #fff; */
     stroke-width: 1.5px;
     transition: opacity 0.3s;
 }

@@ -237,7 +237,7 @@ export function createCollapsibleTree(container) {
       nodes.append("circle")
         .attr("r", 5)
         .attr("fill", d => d.children ? "#69b3a2" : "#ff7f0e")
-        .attr("stroke", "#fff")
+      //  .attr("stroke", "#fff")
         .attr("stroke-width", 1.5);
     
       // Add text labels with responsive truncation
@@ -251,8 +251,10 @@ export function createCollapsibleTree(container) {
             d.data.name.substring(0, maxChars) + "..." : 
             d.data.name;
         })
-        .style("font-size", Math.min(14, width/60) + "px")
+        .style("font-size",
+           Math.min(14, width/60) + "px")
         .style("pointer-events", "none")
+
         .style("text-shadow", "0 1px 2px white");
     
       // Add zoom/pan capability
