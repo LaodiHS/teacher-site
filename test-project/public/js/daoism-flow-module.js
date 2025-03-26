@@ -1,30 +1,32 @@
-
-const schemeCategory10 = d3.schemeCategory10;
+//import { geoMercator, geoPath } from 'https://cdn.jsdelivr.net/npm/d3-geo@3/+esm';
+//import { 
+    //scaleOrdinal, 
+  //  scaleSqrt } from 'https://cdn.jsdelivr.net/npm/d3-scale@4/+esm';
+// import { schemeCategory10 } from 'https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3/+esm';
+// console.log('d3:  ', d3.geoPath)
+const schemeCategory10= d3.schemeCategory10
 const scaleOrdinal = d3.scaleOrdinal;
-const scaleSqrt = d3.scaleSqrt;
+const scaleSqrt = d3.scaleSqrt
 const geoPath = d3.geoPath;
 const geoMercator = d3.geoMercator;
-
 export function createDaoismFlowMap(container) {
-    const currentYear = parseInt(d3.select("#yearSlider").property("value"), 10);
-    // Responsive dimensions
     const containerWidth = container.clientWidth || Math.min(1200, window.innerWidth - 20);
     const containerHeight = container.clientHeight || Math.min(900, window.innerHeight * 0.8);
     const width = containerWidth;
     const height = containerHeight;
     const isMobile = width < 768;
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
-
-    // Create SVG with responsive attributes
+    const currentYear = parseInt(d3.select("#yearSlider").property("value"), 10);
+    
     const svg = d3.select(container)
         .append("svg")
-        .attr("width", "100%")
-        .attr("height", "100%")
+        .attr("width", width)
+        .attr("height", height)
         .attr("viewBox", `0 0 ${width} ${height}`)
         .attr("preserveAspectRatio", "xMidYMid meet");
 
-    // Enhanced touch-friendly tooltip
-    const tooltip = d3.select(container).append("div")
+    // Enhanced tooltip
+    const tooltip = d3.select("body").append("div")
         .attr("class", "daoism-tooltip")
         .style("position", "absolute")
         .style("background", "rgba(255, 255, 255, 0.97)")
@@ -32,13 +34,12 @@ export function createDaoismFlowMap(container) {
         .style("border-radius", "5px")
         .style("padding", isMobile ? "10px" : "12px")
         .style("font-family", "'Noto Sans SC', Arial, sans-serif")
-        .style("font-size", isMobile ? "14px" : "14px")
+        .style("font-size", isMobile ? "10px" : "14px")
         .style("box-shadow", "0 3px 10px rgba(0,0,0,0.3)")
         .style("pointer-events", "none")
         .style("opacity", 0)
         .style("z-index", "1000")
-        .style("max-width", isMobile ? "280px" : "350px")
-        .style("transform", isMobile ? "translate(-50%, -110%)" : "none");
+        .style("max-width", isMobile ? "280px" : "350px");
 
     // Celestial Masters data with locations
     const celestialMasters = [
@@ -230,7 +231,7 @@ export function createDaoismFlowMap(container) {
         }
     ];
 
-    // Color and size scales with mobile adjustments
+    // Color and size scales
     const colorScale = scaleOrdinal()
         .domain(["Zhengyi", "Quanzhen", "Shangqing", "Lingbao"])
         .range(schemeCategory10);
@@ -239,20 +240,21 @@ export function createDaoismFlowMap(container) {
         .domain([0, 10])
         .range([isMobile ? 1.5 : 2, isMobile ? 7 : 10]);
 
-    // Responsive projection
+         // Responsive projection
     const baseScale = isMobile ? 400 : 600;
     const projection = geoMercator()
         .center([104, 35])
-        .scale(baseScale * (width / 1200))
+        .scale(600)
         .translate([width / 2, height / 2]);
 
-    // Arrow marker definitions (unchanged but mobile-aware)
+    // Arrow marker definitions
     const defs = svg.append("defs");
+    
     colorScale.domain().forEach(school => {
         defs.append("marker")
             .attr("id", `arrowhead-${school}`)
             .attr("viewBox", "0 -5 10 10")
-            .attr("refX", isMobile ? 12 : 15)
+            .attr("refX", 15)
             .attr("refY", 0)
             .attr("markerWidth", isMobile ? 5 : 6)
             .attr("markerHeight", isMobile ? 5 : 6)
@@ -262,9 +264,8 @@ export function createDaoismFlowMap(container) {
             .attr("fill", colorScale(school));
     });
 
-    // Load and draw China map
     d3.json("./data/countries_1.geojson")
-        .then(function(china) {
+        .then(function (china) {
             const chinaFeatures = china.features.filter(d => d.properties.ADMIN === "China");
 
             svg.append("g")
@@ -281,7 +282,6 @@ export function createDaoismFlowMap(container) {
             addCelestialMasters();
         });
 
-    // Nodes and links data (unchanged from original)
     const nodes = [
         { id: "MountQingcheng", coordinates: [103.57, 30.90], year: 0, school: "Zhengyi", info: "Birthplace of Daoism" },
         { id: "Chengdu", coordinates: [104.06, 30.67], year: 100, school: "Zhengyi", info: "Early Daoist center in Sichuan" },
@@ -300,7 +300,7 @@ export function createDaoismFlowMap(container) {
 
     function drawFlowMap() {
         const flowLayer = svg.append("g").attr("class", "flow-layer");
-        const nodeSizeMultiplier = isMobile ? 0.6 : 0.8;
+        const nodeSizeMultiplier = isMobile ? 0.1 : 0.2;
         const cityLabelSize = isMobile ? "10px" : "12px";
 
         flowLayer.selectAll(".flow-path")
@@ -310,23 +310,14 @@ export function createDaoismFlowMap(container) {
             .attr("d", d => createCurvedPath(d, projection))
             .attr("fill", "none")
             .attr("stroke", d => colorScale(d.school))
-            .attr("stroke-width", d => Math.sqrt(d.value) * (isMobile ? 2 : 1.5))
+            .attr("stroke-width", d => Math.sqrt(d.value) * 1.5)
             .attr("opacity", d => d.year <= currentYear ? 0.7 : 0)
             .attr("marker-end", d => d.year <= currentYear ? `url(#arrowhead-${d.school})` : null)
             .style("stroke-dasharray", d => influenceScale(d.value) > 5 ? "none" : "2,2")
-            .on(isTouchDevice ? "touchstart" : "mouseover", function(event, d) {
-                event.preventDefault();
-                showTooltip(event, d, true);
-                d3.select(this).attr("stroke-width", Math.sqrt(d.value) * (isMobile ? 3 : 2));
-            })
-            .on(isTouchDevice ? "touchend" : "mouseout", function(event, d) {
-                if (!isTouchDevice) hideTooltip();
-                d3.select(this).attr("stroke-width", Math.sqrt(d.value) * (isMobile ? 2 : 1.5));
-            })
-            .on("touchmove", function(event) {
-                moveTooltip(event);
-                event.preventDefault();
-            });
+            .on("mouseover touchstart", (event, d) => showTooltip(event, d, true))
+            .on("mousemove", (event) => moveTooltip(event))
+            .on("touchmove", (event) => moveTooltip(event))
+            .on("mouseout touched", () => hideTooltip());
 
         svg.selectAll(".node")
             .data(nodes)
@@ -337,46 +328,29 @@ export function createDaoismFlowMap(container) {
             .attr("r", d => {
                 const outgoing = links.filter(l => l.source === d.id).reduce((sum, l) => sum + l.value, 0);
                 const incoming = links.filter(l => l.target === d.id).reduce((sum, l) => sum + l.value, 0);
-                return Math.sqrt(outgoing + incoming) * nodeSizeMultiplier;
+                return Math.sqrt(outgoing + incoming) * 0.8;
             })
             .attr("fill", d => colorScale(d.school))
             .attr("stroke", "#fff")
             .attr("stroke-width", 1.5)
             .attr("opacity", d => d.year <= currentYear ? 1 : 0)
-            .on(isTouchDevice ? "touchstart" : "mouseover", function(event, d) {
-                event.preventDefault();
-                showTooltip(event, d, false);
-                d3.select(this).attr("r", Math.sqrt(
-                    links.filter(l => l.source === d.id).reduce((sum, l) => sum + l.value, 0) +
-                    links.filter(l => l.target === d.id).reduce((sum, l) => sum + l.value, 0)
-                ) * (nodeSizeMultiplier + 0.2));
-            })
-            .on(isTouchDevice ? "touchend" : "mouseout", function(event, d) {
-                if (!isTouchDevice) hideTooltip();
-                d3.select(this).attr("r", Math.sqrt(
-                    links.filter(l => l.source === d.id).reduce((sum, l) => sum + l.value, 0) +
-                    links.filter(l => l.target === d.id).reduce((sum, l) => sum + l.value, 0)
-                ) * nodeSizeMultiplier);
-            })
-            .on("touchmove", function(event) {
-                moveTooltip(event);
-                event.preventDefault();
-            });
+            .on("mouseover", (event, d) => showTooltip(event, d, false))
+            .on("mousemove", (event) => moveTooltip(event))
+            .on("mouseout", () => hideTooltip());
 
         svg.selectAll(".city-label")
             .data(nodes)
             .enter().append("text")
             .attr("class", "city-label")
-            .attr("x", d => projection(d.coordinates)[0] + (isMobile ? 8 : 10))
-            .attr("y", d => projection(d.coordinates)[1] + (isMobile ? 4 : 5))
+            .attr("x", d => projection(d.coordinates)[0] + 10)
+            .attr("y", d => projection(d.coordinates)[1] + 5)
             .text(d => d.id)
-            .attr("font-size", cityLabelSize)
+            .attr("font-size", "12px")
             .attr("opacity", d => d.year <= currentYear ? 0.8 : 0);
     }
 
     function addCelestialMasters() {
         const mastersLayer = svg.append("g").attr("class", "masters-layer");
-        const masterLabelSize = isMobile ? "8px" : "9px";
 
         mastersLayer.selectAll(".master-marker")
             .data(celestialMasters)
@@ -384,36 +358,43 @@ export function createDaoismFlowMap(container) {
             .attr("class", "master-marker")
             .attr("cx", d => projection(d.coordinates)[0])
             .attr("cy", d => projection(d.coordinates)[1])
-            .attr("r", isMobile ? 8 : 5)
+            .attr("r", 5)
             .attr("fill", "#d62728")
             .attr("stroke", "#fff")
             .attr("stroke-width", 1)
-            .on(isTouchDevice ? "touchstart" : "mouseover", function(event, d) {
-                event.preventDefault();
-                showTooltip(event, d, false);
-                d3.select(this)
-                    .attr("r", isMobile ? 10 : 7)
-                    .attr("fill", "#ff3333");
+            .on("mouseover", (event, d) => {
+                tooltip.html(`
+                    <div style="border-bottom:1px solid #eee;margin-bottom:8px;padding-bottom:8px">
+                        <strong>${d.number}. ${d.name} (${d.chinese})</strong>
+                    </div>
+                    <div style="margin-bottom:8px">
+                        <span style="color:#666">Location: </span>${d.location}<br>
+                        <span style="color:#666">Active: </span>${d.dates}
+                    </div>
+                    <div>Bio:</div>
+                    <div>${d.bio}</div>
+                    <div>Contrabutions:</div>
+                    <div>${d.contributions.map(c => `<li>${c}</li>`).join("")}</div>
+                `)
+                .style("opacity", 1);
             })
-            .on(isTouchDevice ? "touchend" : "mouseout", function() {
-                if (!isTouchDevice) hideTooltip();
-                d3.select(this)
-                    .attr("r", isMobile ? 8 : 5)
-                    .attr("fill", "#d62728");
+            .on("mousemove", (event) => {
+                tooltip.style("left", (event.pageX + 15) + "px")
+                      .style("top", (event.pageY - 30) + "px");
             })
-            .on("touchmove", function(event) {
-                moveTooltip(event);
-                event.preventDefault();
+            .on("mouseout", () => {
+                tooltip.style("opacity", 0);
             });
 
+        // Add small labels for master locations
         mastersLayer.selectAll(".master-label")
             .data(celestialMasters)
             .enter().append("text")
             .attr("class", "master-label")
-            .attr("x", d => projection(d.coordinates)[0] + (isMobile ? 6 : 8))
-            .attr("y", d => projection(d.coordinates)[1] + (isMobile ? 2 : 3))
+            .attr("x", d => projection(d.coordinates)[0] + 8)
+            .attr("y", d => projection(d.coordinates)[1] + 3)
             .text(d => d.number)
-            .attr("font-size", masterLabelSize)
+            .attr("font-size", "9px")
             .attr("fill", "#fff");
     }
 
@@ -440,51 +421,25 @@ export function createDaoismFlowMap(container) {
 
     function showTooltip(event, d, isPath) {
         const content = isPath 
-            ? `<div class="tooltip-header">${d.source} → ${d.target}</div>
-               <div class="tooltip-row"><span class="tooltip-label">School:</span> ${d.school}</div>
-               <div class="tooltip-row"><span class="tooltip-label">Influence:</span> ${d.value}/10</div>
-               <div class="tooltip-desc">${d.info}</div>
-               <div class="tooltip-year">Year: ${d.year}${d.year < 1000 ? " BCE" : " CE"}</div>`
-            : `<div class="tooltip-header">${d.id}</div>
-               <div class="tooltip-row"><span class="tooltip-label">School:</span> ${d.school}</div>
-               <div class="tooltip-desc">${d.info}</div>
-               <div class="tooltip-year">Year: ${d.year}${d.year < 1000 ? " BCE" : " CE"}</div>`;
+            ? `<strong>${d.source} → ${d.target}</strong><br>
+               School: ${d.school}<br>
+               Influence: ${d.value}/10<br>
+               ${d.info}<br>
+               Year: ${d.year}${d.year < 1000 ? " BCE" : " CE"}`
+            : `<strong>${d.id}</strong><br>
+               School: ${d.school}<br>
+               ${d.info}<br>
+               Year: ${d.year}${d.year < 1000 ? " BCE" : " CE"}`;
 
         tooltip.html(content)
-            .style("opacity", 1);
-
-        if (isTouchDevice) {
-            const touch = event.touches ? event.touches[0] : event;
-            tooltip.style("left", `${touch.pageX}px`)
-                  .style("top", `${touch.pageY}px`);
-        } else {
-            tooltip.style("left", `${event.pageX + 15}px`)
-                  .style("top", `${event.pageY - 30}px`);
-        }
-        
-        if (isTouchDevice) {
-            tooltip.append("div")
-                .attr("class", "tooltip-close")
-                .html("×")
-                .style("position", "absolute")
-                .style("top", "5px")
-                .style("right", "10px")
-                .style("font-size", "18px")
-                .style("font-weight", "bold")
-                .style("cursor", "pointer")
-                .on("click touchstart", function() {
-                    hideTooltip();
-                });
-        }
+            .style("opacity", 1)
+            .style("left", (event.pageX + 15) + "px")
+            .style("top", (event.pageY - 30) + "px");
     }
 
     function moveTooltip(event) {
-        const pos = isTouchDevice ? 
-            (event.touches ? event.touches[0] : event) : 
-            event;
-            
-        tooltip.style("left", `${pos.pageX}px`)
-              .style("top", `${pos.pageY}px`);
+        tooltip.style("left", (event.pageX + 15) + "px")
+              .style("top", (event.pageY - 30) + "px");
     }
 
     function hideTooltip() {
