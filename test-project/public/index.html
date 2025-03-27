@@ -442,6 +442,8 @@
     </div>
   </section>
 
+
+
 <!-- Add this section below your existing content -->
 <!-- <section class="poverty-viz-section">
   <h2>中国扶贫成就 / China's Poverty Alleviation</h2>
@@ -472,6 +474,25 @@
     </div>
   </section>
 
+  <section class="journey parallax" id="Indonisa" style="background-image: url('/images/sumatra_cocunt_garden.jpg');">
+    <div class="content">
+      <h2>Teaching in Indonisa</h2>  <fancy-carousel  
+   auto-spin
+   spin-interval="3000"
+   images='[ 
+   "./images/school_3.jpg",
+   "./images/school_4.jpg",
+   "./images/school_5.jpg",
+   "./images/school_6.jpg",
+   "./images/school_7.jpg"
+  ]'>
+    
+  </fancy-carousel>
+      </div>
+  </section>
+
+
+
   <!-- Footer -->
   <footer>
     <p>© <span id="year"></span> 张浩道. 版权所有.</p>
@@ -481,6 +502,7 @@
   </footer>
 
   <!-- GSAP Script -->
+   <script src="./js/fancy_carousel.js"></script>
   <script src="./data/d3.v7.min.js"></script>
   <script src="./data/3d-force-graph.js"></script>
   <!-- <script src="./data/helvetiker_regular.typeface.json"></script> -->
@@ -488,6 +510,23 @@
   <script src="./data/gsap.min.js"></script> 
   <script src="./data/ScrollTrigger.min.js"></script>
     
+
+  <script type="module">
+  const carousel = new FancyCarousel('.fancy-carousel', [
+  './images/school_3.jpg',
+  './images/school_4.jpg',
+  './images/school_5.jpg',
+  './images/school_6.jpg',
+  './images/school_7.jpg',
+  
+]);
+
+  </script>
+
+
+
+
+
   <!-- ForceGraph3D Script --> 
     <script type="module">
       import { createForceGraph } from './js/force-graph-module.js';
