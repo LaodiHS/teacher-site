@@ -172,6 +172,98 @@ const chineseContent = {
       <span style="font-style: italic">终身学习自信</span>。
     </p>
   </div>
+     <div style="
+          background: #2c3e50;
+          color: white;
+          padding: 25px;
+          border-radius: 10px;
+          text-align: center;
+          margin: 30px auto;
+          max-width: 650px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        ">
+          <h2 style="
+            margin-top: 0;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+          ">Contact Me</h2>
+          
+          <div style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+          ">
+            <!-- WeChat QR Code -->
+            <div>
+              <img src="./images/wechatQr.jpg" 
+                   alt="WeChat QR Code" 
+                   style="width: 100%; max-width: 150px; border-radius: 8px; border: 3px solid #fff;">
+              <p style="margin-top: 8px;">WeChat</p>
+            </div>
+
+                <!-- TiKTok QR Code -->
+                <div>
+                  <img src="./images/tangerine.jpg" 
+                       alt="WeChat QR Code" 
+                       style="width: 100%; max-width: 150px; border-radius: 8px; border: 3px solid #fff;">
+                  <p style="margin-top: 8px;">Tiktok</p>
+                </div>
+            
+            <!-- Email -->
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 10px;">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <a href="mailto:hseirafi@gmail.com" 
+                 style="color: #3498db; text-decoration: none; font-weight: bold;">
+                hseirafi@gmail.com
+              </a>
+            </div>
+            
+            <!-- Twitter/X -->
+            <!-- <div style="display: flex; flex-direction: column; justify-content: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 10px;">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+              <a href="https://twitter.com/HasanS" 
+                 target="_blank" 
+                 style="color: #1da1f2; text-decoration: none; font-weight: bold;">
+                @[YOUR_TWITTER_HANDLE]
+              </a>
+            </div> -->
+    
+            <!-- RedNote -->
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#ff0000" style="margin: 0 auto 10px;">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+              </svg>
+              <a href="https://www.xiaohongshu.com/user/profile/67014068000000000d0272f0?xsec_token=YBugQf2jji8ow1i2qHOMRVndZOw-CwVsWfClvzVNL1JSw%3D&xsec_source=app_share&xhsshare=CopyLink&appuid=67014068000000000d0272f0&apptime=1743034009&share_id=d792b1a0c70947d3a1c58d9f098f72c8&share_channel=copy_link" 
+                 target="_blank" 
+                 style="color: #ff0000; text-decoration: none; font-weight: bold;">
+                @xiaohongshu
+              </a>
+            </div>
+    
+          
+        
+         
+          </div>
+          
+          <p style="
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 0;
+            opacity: 0.9;
+            margin-top: 15px;
+          ">
+            Let's connect and discuss <span style="font-weight: bold">education</span>, 
+            <span style="font-style: italic">language teaching</span>, and 
+            <span style="text-decoration: underline">learning innovations</span>.
+          </p>
+        </div>
 </div>
 
 `,
@@ -186,7 +278,8 @@ const chineseContent = {
   zhouTitle: "采薇 小雅",
   zhouText:"周虽旧邦，其命维新",
   stillnessTitle: "太上老君说常清静经",
-  stillnessText:`<!-- 清静经中文版 -->
+  stillnessText:`
+  <!-- 清静经中文版 -->
 <div class="qingjing-component">
   <h1 class="qingjing-component__title">太上老君说常清静经</h1>
   
@@ -247,7 +340,8 @@ const englishContent = {
   heroSubtitle: "A Journey Through Poetry and Civilization",
   heroQuote: "“When I left, the willows swayed gently, Now I return, snow falls thickly.” — Book of Songs",
   aboutMeTitle: "About Me",
-  aboutMeText: `<div style="
+  aboutMeText: `
+  <div style="
   font-family: 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   max-width: 800px;
   margin: 0 auto;
@@ -415,6 +509,100 @@ const englishContent = {
       and <span style="font-style: italic">lifelong learning confidence</span>.
     </p>
   </div>
+
+   <div style="
+          background: #2c3e50;
+          color: white;
+          padding: 25px;
+          border-radius: 10px;
+          text-align: center;
+          margin: 30px auto;
+          max-width: 650px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        ">
+          <h2 style="
+            margin-top: 0;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+          ">Contact Me</h2>
+          
+          <div style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+          ">
+            <!-- WeChat QR Code -->
+            <div>
+              <img src="./images/wechatQr.jpg" 
+                   alt="WeChat QR Code" 
+                   style="width: 100%; max-width: 150px; border-radius: 8px; border: 3px solid #fff;">
+              <p style="margin-top: 8px;">WeChat</p>
+            </div>
+
+                <!-- TiKTok QR Code -->
+                <div>
+                  <img src="./images/tangerine.jpg" 
+                       alt="WeChat QR Code" 
+                       style="width: 100%; max-width: 150px; border-radius: 8px; border: 3px solid #fff;">
+                  <p style="margin-top: 8px;">Tiktok</p>
+                </div>
+            
+            <!-- Email -->
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 10px;">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <a href="mailto:hseirafi@gmail.com" 
+                 style="color: #3498db; text-decoration: none; font-weight: bold;">
+                hseirafi@gmail.com
+              </a>
+            </div>
+            
+            <!-- Twitter/X -->
+            <!-- <div style="display: flex; flex-direction: column; justify-content: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 10px;">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+              <a href="https://twitter.com/HasanS" 
+                 target="_blank" 
+                 style="color: #1da1f2; text-decoration: none; font-weight: bold;">
+                @[YOUR_TWITTER_HANDLE]
+              </a>
+            </div> -->
+    
+            <!-- RedNote -->
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#ff0000" style="margin: 0 auto 10px;">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+              </svg>
+              <a href="https://www.xiaohongshu.com/user/profile/67014068000000000d0272f0?xsec_token=YBugQf2jji8ow1i2qHOMRVndZOw-CwVsWfClvzVNL1JSw%3D&xsec_source=app_share&xhsshare=CopyLink&appuid=67014068000000000d0272f0&apptime=1743034009&share_id=d792b1a0c70947d3a1c58d9f098f72c8&share_channel=copy_link" 
+                 target="_blank" 
+                 style="color: #ff0000; text-decoration: none; font-weight: bold;">
+                @xiaohongshu
+              </a>
+            </div>
+    
+          
+        
+         
+          </div>
+          
+          <p style="
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 0;
+            opacity: 0.9;
+            margin-top: 15px;
+          ">
+            Let's connect and discuss <span style="font-weight: bold">education</span>, 
+            <span style="font-style: italic">language teaching</span>, and 
+            <span style="text-decoration: underline">learning innovations</span>.
+          </p>
+        </div>
+
 </div>`,
   changAnTitle: "Chang'an: Echoes of Emperors and Scholars",
   changAnText: "When I arrived in Xi’an, the splendor of the ancient capital of Chang’an still lingered in the air...",
@@ -427,7 +615,8 @@ const englishContent = {
   zhouTitle:"Cai Wei in Xiao Ya",
   zhouText:"Zhou may be an old state, but its mandate is ever-renewed.",
   stillnessTitle:"Scripture of Clarity & Stillness",
-  stillnessText:`<!-- COMPONENT STARTS HERE -->
+  stillnessText:`
+  <!-- COMPONENT STARTS HERE -->
 <div class="scripture-component">
   <h1 class="scripture-component__title scripture-component__sparkle">Scripture of Clarity & Stillness</h1>
   
