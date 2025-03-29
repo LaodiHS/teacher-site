@@ -900,3 +900,9 @@ footer {
 .fancy-carousel-controls button:hover {
   background: rgba(0, 0, 0, 0.8);
 }
+
+pascal-triangle {
+  --primary-color: #2ecc71;
+  --cell-size: 45px;
+  margin: 20px;
+}

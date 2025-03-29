@@ -197,38 +197,38 @@ export function createDaoismFlowMap(container) {
             ],
             works: []
         },
-        {
-            number: 63,
-            name: "Zhang Enpu",
-            chinese: "张恩溥",
-            dates: "1904–1969",
-            location: "Taipei, Taiwan",
-            coordinates: [121.56, 25.03],
-            bio: "The 63rd Celestial Master who fled to Taiwan in 1949. Reestablished the lineage seat in Taiwan. Worked to maintain tradition during cultural disruptions.",
-            contributions: [
-                "Preserved lineage during Communist revolution",
-                "Established Taiwan as new center for Zhengyi Dao",
-                "Modernized transmission while keeping traditions",
-                "Promoted Daoism internationally"
-            ],
-            works: ["Daoist Ritual Essentials"]
-        },
-        {
-            number: 64,
-            name: "Zhang Yuanxian",
-            chinese: "張源先",
-            dates: "1971–2008",
-            location: "Taipei, Taiwan",
-            coordinates: [121.56, 25.03],
-            bio: "The 64th Celestial Master who modernized the tradition's global outreach. Established digital archives of Daoist texts. Faced controversies over lineage recognition.",
-            contributions: [
-                "Created first digital Daoist text repositories",
-                "Oversaw international spread of Zhengyi Dao",
-                "Standardized priest training programs",
-                "Mediated mainland-Taiwan religious relations"
-            ],
-            works: ["Contemporary Daoist Practice"]
-        }
+        // {
+        //     number: 63,
+        //     name: "Zhang Enpu",
+        //     chinese: "张恩溥",
+        //     dates: "1904–1969",
+        //     location: "Taipei, Taiwan",
+        //     coordinates: [121.56, 25.03],
+        //     bio: "The 63rd Celestial Master who fled to Taiwan in 1949. Reestablished the lineage seat in Taiwan. Worked to maintain tradition during cultural disruptions.",
+        //     contributions: [
+        //         "Preserved lineage during Communist revolution",
+        //         "Established Taiwan as new center for Zhengyi Dao",
+        //         "Modernized transmission while keeping traditions",
+        //         "Promoted Daoism internationally"
+        //     ],
+        //     works: ["Daoist Ritual Essentials"]
+        // },
+        // {
+        //     number: 64,
+        //     name: "Zhang Yuanxian",
+        //     chinese: "張源先",
+        //     dates: "1971–2008",
+        //     location: "Taipei, Taiwan",
+        //     coordinates: [121.56, 25.03],
+        //     bio: "The 64th Celestial Master who modernized the tradition's global outreach. Established digital archives of Daoist texts. Faced controversies over lineage recognition.",
+        //     contributions: [
+        //         "Created first digital Daoist text repositories",
+        //         "Oversaw international spread of Zhengyi Dao",
+        //         "Standardized priest training programs",
+        //         "Mediated mainland-Taiwan religious relations"
+        //     ],
+        //     works: ["Contemporary Daoist Practice"]
+        // }
     ];
 
     // Color and size scales
