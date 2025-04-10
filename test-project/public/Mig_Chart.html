@@ -663,7 +663,7 @@ div.vis-readonly.vis-selected {
 <h1 style="text-align: center;">📡 Microservices Architecture: Post-Migration</h1>
 <architecture-diagram></architecture-diagram>
 
-<script src="./js/libs/vis-timeline-graph2d.min.js"></script>
+<!-- <script src="./js/libs/vis-timeline-graph2d.min.js"></script> -->
 <!-- <script src="https://cdpn.io/cpe/boomboom/pen.js?key=pen.js-7be91697-d4b2-6915-eddb-7671ee8fea54" ></script> -->
 
 
@@ -909,39 +909,39 @@ div.vis-readonly.vis-selected {
         
         // Groups configuration
         const groups = [
-        { id: 1, content: "Phase 1: Discovery & Planning" },
-  { id: 2, content: "Phase 2: Infra Setup (Kubernetes on AWS)" },
-  { id: 3, content: "Phase 3: Service Decomposition" },
-  { id: 4, content: "Phase 4: Data Migration & Hardening" },
-  { id: 5, content: "Phase 5: Canary & Testing" },
-  { id: 6, content: "Phase 6: Cutover & Wrap-up" },
+          { id: 1, content: "Phase 1: Discovery & Planning" },
+          { id: 2, content: "Phase 2: Infra Setup (Kubernetes on AWS)" },
+          { id: 3, content: "Phase 3: Service Decomposition" },
+          { id: 4, content: "Phase 4: Data Migration & Hardening" },
+          { id: 5, content: "Phase 5: Canary & Testing" },
+          { id: 6, content: "Phase 6: Cutover & Wrap-up" },
         ];
-        
+
         const template = (item) => {
-      return `
+          return `
         <div class="bilingual">
           <div class="english">${item.content}</div>
           <div class="chinese">${item.contentCN}</div>
         </div>
       `;
-    };
+        };
         // Timeline options
 
         
 
         const options = {
-  template,
-  stack: true,
-  groupOrder: 'id',
-  editable: false,
-  start: '2022-01-01',
+          template,
+          stack: true,
+          groupOrder: 'id',
+          editable: false,
+          start: '2022-01-01',
           end: '2022-06-30',
-  orientation: 'top',
-  showCurrentTime: false,
-  tooltip: {
-        followMouse: true,
-        overflowMethod: 'cap',
-        template: (item) => `
+          orientation: 'top',
+          showCurrentTime: false,
+          tooltip: {
+            followMouse: true,
+            overflowMethod: 'cap',
+            template: (item) => `
           <div class="bilingual-tooltip">
             <strong>${item.content}</strong><br>
             ${item.title}<hr>
@@ -949,11 +949,11 @@ div.vis-readonly.vis-selected {
             ${item.titleCN}
           </div>
         `
-      },
-  margin: { item: 5 },
-  zoomMin: 1000 * 60 * 60 * 24 * 7, // 1 week
-  zoomMax: 1000 * 60 * 60 * 24 * 60, // 2 months
-};
+          },
+          margin: { item: 5 },
+          zoomMin: 1000 * 60 * 60 * 24 * 7, // 1 week
+          zoomMax: 1000 * 60 * 60 * 24 * 60, // 2 months
+        };
 
 
         new vis.Timeline(container, items, groups, options);
@@ -976,7 +976,7 @@ div.vis-readonly.vis-selected {
 </script>
 
 <script type="module">
-  import mermaid from './js/libs/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
 
   mermaid.initialize({
     startOnLoad: false,
