@@ -7,7 +7,10 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.min.js"></script>
 <script src="https://unpkg.com/vis-timeline@latest/standalone/umd/vis-timeline-graph2d.min.js"></script>
 <link href="https://unpkg.com/vis-timeline@latest/styles/vis-timeline-graph2d.min.css" rel="stylesheet">
-
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
 <style>
 body,
 html {
@@ -657,7 +660,8 @@ div.vis-readonly.vis-selected {
   </div>
 </div>
 
-
+<h1 style="text-align: center;">📡 Microservices Architecture: Post-Migration</h1>
+<architecture-diagram></architecture-diagram>
 
 <script src="./js/libs/vis-timeline-graph2d.min.js"></script>
 <!-- <script src="https://cdpn.io/cpe/boomboom/pen.js?key=pen.js-7be91697-d4b2-6915-eddb-7671ee8fea54" ></script> -->
@@ -969,4 +973,93 @@ div.vis-readonly.vis-selected {
       };
     }
   }).mount('#app');
+</script>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+  mermaid.initialize({
+    startOnLoad: false,
+    securityLevel: 'loose', // allow SVG injection into shadow DOM
+    theme: 'default',
+  });
+
+  class ArchitectureDiagram extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+    }
+
+    connectedCallback() {
+      const style = `
+        <style>
+          :host {
+            display: block;
+            margin: 2rem auto;
+            font-family: 'Segoe UI', sans-serif;
+            max-width: 100%;
+          }
+          .diagram-container {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+          }
+        </style>
+      `;
+
+      const graphDefinition = `
+        graph TD
+          User["👤 User"] -->|HTTPS| ALB["AWS Application Load Balancer"]
+          ALB --> UI_Pods["UI Pods (React/Next.js)"]
+          UI_Pods -->|Static Content| S3["Amazon S3 (Assets)"]
+          UI_Pods -->|REST/gRPC| Gateway["API Gateway (Ingress Controller)"]
+          Gateway --> MS_1["📦 Auth Service (Spring Boot)"]
+          Gateway --> MS_2["📦 Portfolio Service (Spring Boot)"]
+          Gateway --> MS_3["📦 Sentiment Analyzer (NLP Service)"]
+          Gateway --> MS_4["📦 Chatbot Interface (NLP Intent Matching)"]
+          Gateway --> MS_5["📦 WebRTC Signaling Service"]
+          MS_1 --> MongoDB["MongoDB Atlas"]
+          MS_2 --> MongoDB
+          MS_3 --> Redis["Redis Cache"]
+          MS_4 --> Redis
+          MS_1 --> Kafka["Apache Kafka (Event Streaming)"]
+          MS_2 --> Kafka
+          MS_3 --> Kafka
+          Kafka --> Analytics["📊 Data Lake / Analytics Pipeline"]
+          MS_5 --> Janus["Janus Gateway (WebRTC SFU)"]
+          Janus --> STUN["STUN Server (NAT Traversal)"]
+          Janus --> TURN["TURN Server (Relay Fallback)"]
+          subgraph Monitoring
+            Prometheus["Prometheus (Metrics)"] --> Grafana["Grafana (Dashboards)"]
+            Janus --> Prometheus
+            Kafka --> Prometheus
+            Gateway --> Prometheus
+          end
+          DevTeam["👩‍💻 Dev Team"] --> Git["Bitbucket (Git Repo)"]
+          Git --> CI_CD["CI/CD Pipelines (Jenkins + GitHub Actions)"]
+          CI_CD --> K8s["EKS (Kubernetes Cluster)"]
+          K8s -->|Auto-Scaling Pods| HPA["Horizontal Pod Autoscaler"]
+          K8s -->|Manages| UI_Pods
+          K8s --> Gateway
+          K8s --> Janus
+          K8s --> MS_1
+          K8s --> MS_2
+          K8s --> MS_3
+          K8s --> MS_4
+          K8s --> MS_5
+      `;
+
+      // Render Mermaid to SVG string and inject into Shadow DOM
+      mermaid.render('architectureDiagram', graphDefinition).then(({ svg }) => {
+        const container = document.createElement('div');
+        container.classList.add('diagram-container');
+        container.innerHTML = style + svg;
+        this.shadowRoot.appendChild(container);
+      });
+    }
+  }
+
+  customElements.define('architecture-diagram', ArchitectureDiagram);
 </script>
