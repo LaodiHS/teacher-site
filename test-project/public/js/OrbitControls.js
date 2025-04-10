@@ -44,7 +44,7 @@
 			this.maxPolarAngle = Math.PI; // radians
 			// How far you can orbit horizontally, upper and lower limits.
 			// If set, the interval [ min, max ] must be a sub-interval of [ - 2 PI, 2 PI ], with ( max - min < 2 PI )
-
+-
 			this.minAzimuthAngle = - Infinity; // radians
 
 			this.maxAzimuthAngle = Infinity; // radians

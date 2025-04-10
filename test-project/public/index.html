@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Add to <head> -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
   <title>张浩道：一场穿越诗歌与文明的旅程</title>
   <link rel="stylesheet" href="css/styles.css">
   <link href="./css/playfair_display.css" rel="stylesheet">
@@ -304,8 +307,12 @@
         </div>
       </div>
   </section>
+
+
+<!-- <pdf-viewer src="/documents/Hasan_Seirafi_Teaching_Resume.pdf"></pdf-viewer> -->
+
   <section class="journey parallax" id="zhou"
-    style="background-image: url('/images/blowing_fire_right_lady_warior.jpg');">
+    style="background-image: url('/images/fire_lady_1.jpg');">
     <div class="content">
       <h2>诗经</h2>
       <p>周虽旧邦，其命维新。</p>
@@ -503,14 +510,81 @@
 
   <!-- Footer -->
   <footer>
-    <p>© <span id="year"></span> 张浩道. 版权所有.</p>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+  <p>certifications & documents</p>
+  <slide-toggle target="#content">Show content</slide-toggle>
+<div id="content" style="display:none;">
+  <document-viewer documents='[{"name": "TEFL Certificate.pdf", "url": "/documents/TEFL.pdf"},{"name": "Teaching Resume.pdf", "url": "/documents/Hasan_Seirafi_Teaching_Resume.pdf"}]'></document-viewer>
+</div>
+
+
+
+<info-footer>
+    <div slot="contact-primary">
+      <ul>
+        <li>📞 +1 (949) 269 - 7413 </li>
+        <li>📧 hseirafi@gmail.com.com</li>
+        <li>📍 123 Teaching Street, Beijing</li>
+      </ul>
+    </div>
+  
+    <div slot="certifications">
+      <ul>
+        <li>TEFL Certified</li>
+        <li>TESOL Advanced</li>
+        <li>CTAP Certified</li>
+      </ul>
+    </div>
+  
+    <div slot="wechat-qr">
+      WeChat-QR: <div id="wechat-qr" alt="WeChat QR Code"></div>
+    </div>
+  
+    <div slot="contact-secondary">
+      <ul>
+        <li>📱 WeChat ID: XuMiXuHui</li>
+        <li id="website">🌐 </li>
+      </ul>
+    </div>
+  
+    <div slot="copyright">
+      <div slot="copyright">
+        <p>© <span id="year"></span> 张浩道. 版权所有.</p>
+      <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('website').textContent= '🌐 ' + window.location.origin
+      </script>
+    </div>
+    </div>
+  </info-footer>
+
+
+
   </footer>
 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- GSAP Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script src="./js/components/info-footer.js"></script> 
+<script src="./js/components/slide-toggle.js"></script>
+  <script src="./js/components/contact-grid.js"></script>
   <script src="./js/fancy_carousel.js"></script>
+  <script src="./js/document-display.js"></script>
   <script src="./data/d3.v7.min.js"></script>
   <script src="./data/3d-force-graph.js"></script>
   <!-- <script src="./data/helvetiker_regular.typeface.json"></script> -->
@@ -518,6 +592,7 @@
   <script src="./data/gsap.min.js"></script>
   <script src="./data/ScrollTrigger.min.js"></script>
   <script src="./js/magic-number-forest.js"></script>
+  
 
   <script type="module">
     const carousel = new FancyCarousel('.fancy-carousel', [
@@ -566,7 +641,22 @@
   <script type="module">
     import { createPovertyViz } from './js/poverty-viz-module.js';
     createPovertyViz(document.getElementById('poverty-viz-container'));
+
+new QRCode(document.getElementById("wechat-qr"), {
+  text: window.location.href,
+  width: 128,
+  height: 128,
+  colorDark: "#000000",
+  colorLight: "#ffffff",
+  correctLevel: QRCode.CorrectLevel.H
+});
+  
   </script>
+
+<script>
+
+</script>
+
 
   <script>
     // Optional: Programmatic control
@@ -575,6 +665,10 @@
   </script>
 
   <script src="js/main.js"></script>
+
+
+
+  
 </body>
 
 </html>

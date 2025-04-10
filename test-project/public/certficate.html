@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTAP Certificate</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            text-align: center;
+            padding: 40px;
+            background: #f8f8f8;
+        }
+        .certificate {
+            width: 800px;
+            height:550px;
+            background: white;
+            padding: 40px;
+            border: 10px solid #2c3e50;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            margin: auto;
+         
+            position: relative;
+        }
+        .certificate h1 {
+           
+            margin: 10px 0;
+            color: #e2c269;
+            font-family: "Garamond", "Times New Roman", serif;
+    font-size: 45px; /* Adjust size as needed */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+        }
+        .certificate h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .certificate p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .recipient {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            color: rgba(200, 200, 200, 0.3);
+            font-weight: bold;
+            z-index: -1;
+        }
+        .seal {
+            width: 100px;
+            height: auto;
+            position: absolute;
+            bottom: 30px;
+            left: 50px;
+        }
+        .signature {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+        }
+        .signature div {
+            width: 30%;
+            border-top: 1px solid black;
+            padding-top: 5px; 
+            margin-top: 150px;
+        }
+        .certificate-id {
+            font-size: 14px;
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            color: gray;
+        }
+        #symbol {
+            background-image: url('./images/seal.PNG');
+            background-repeat: no-repeat;
+            background-position: top center; /* Adjust the vertical position */
+            background-size: contain;
+            width: 300px;
+            height: 300px;
+    
+    display: inline-block;
+    margin-left: 20px;
+  ;
+            
+        }
+
+    </style>
+</head>
+<body>
+ 
+    <div class="certificate" style="background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://img.freepik.com/premium-vector/rococo-pattern_1268-2293.jpg?w=740'); background-size: cover;">
+        <div class="watermark">CTAP</div>
+        <h1>Certificate of Achievement</h1>
+        <h2>Certified Teacher of Advanced Programming</h2>
+        <p>This is to certify that</p>
+        <p class="recipient">Hasan Abdelrhmanh Seirafi</p>
+        <p>has successfully met the requirements and demonstrated expertise in teaching advanced programming courses.</p>
+        <p>Awarded this day, <strong>July 31, 2015</strong></p>
+
+        <div class="signature">
+            
+            <div> Maggie Wu</div>
+            <span id="symbol"> 
+                <!-- <img src="./images/seal.PNG" alt="Seal" class="seal"> -->
+            </span>
+            <div>Certification Board</div>
+        </div>
+
+        <!-- Gold Seal Image -->
+       
+
+        <cmtep date="2015-07-31T17:03:00Z" class="certificate-id">Certificate ID: CTAP-2015-0731-1703-X4Y7Z</cmtep>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+
+    <script>
+        class CMTEPCertificate extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                const date = this.getAttribute('date') || new Date().toISOString();
+                const certificateId = this.generateCMTEPId(date);
+
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        .certificate-container {
+                            font-family: Arial, sans-serif;
+                            font-size: 20px;
+                            font-weight: bold;
+                            padding: 10px;
+                            border: 2px solid #2c3e50;
+                            display: inline-block;
+                            background: #f8f8f8;
+                        }
+                    </style>
+                    <div class="certificate-container">
+                        ${certificateId.standard}
+                    </div>
+                `;
+            }
+
+            generateCMTEPId(dateString) {
+                const date = new Date(dateString);
+                const timestamp = Math.floor(date.getTime() / 1000);
+
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                const hours = String(date.getHours()).padStart(2, '0');
+                const minutes = String(date.getMinutes()).padStart(2, '0');
+
+                const base36Encoded = timestamp.toString(36).toUpperCase();
+                const hexEncoded = timestamp.toString(16).toUpperCase();
+                const hash = CryptoJS.SHA256(timestamp.toString()).toString().substring(0, 6).toUpperCase();
+                const randomSuffix = Math.random().toString(36).substring(2, 6).toUpperCase();
+
+                return {
+                    standard: `CTAP-${year}-${month}${day}-${hours}${minutes}-${timestamp % 10000}`,
+                    base36: `CTAP-${year}-${base36Encoded}`,
+                    hashed: `CTAP-${year}-${month}${day}-${hours}${minutes}-${hash}`,
+                    randomized: `CTAP-${year}-${month}${day}-${hours}${minutes}-${randomSuffix}`,
+                    hex: `CTAP-${year}-${hexEncoded}`
+                };
+            }
+        }
+
+        customElements.define('cmtep-certificate', CMTEPCertificate);
+    </script>
+</body>
+
+</html>
