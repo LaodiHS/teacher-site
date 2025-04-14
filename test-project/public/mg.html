@@ -222,6 +222,10 @@ div.vis-readonly.vis-selected {
       height: 400px;
     }
   }
+  .vis-label, .vis-item {
+  font-size: 10px; /* Changes font size for labels and items */
+}
+
 </style>
 </head>
 <body>
@@ -470,7 +474,7 @@ div.vis-readonly.vis-selected {
   <!-- Migration Timeline Card -->
   <div class="card" :class="{expanded: expandedSections.timeline}" @click="toggleSection('timeline')">
     <div class="card-header">
-      <h2>{{ language === 'en' ? 'Migration Timeline' : '迁移时间线' }}</h2>
+      <h2>{{ language === 'en' ? 'Migration Timeline' : '迁移时间线' }} (Drag the timeline and mouseover to see details)</h2>
       <span class="toggle-icon">▼</span>
     </div>
     <div class="card-body">
@@ -668,6 +672,7 @@ div.vis-readonly.vis-selected {
   mermaid.initialize({ startOnLoad: true });
 </script>
 <script>
+
   const { createApp, ref, watch, onMounted } = Vue;
   
   createApp({
@@ -938,6 +943,7 @@ div.vis-readonly.vis-selected {
           end: '2022-06-30',
           orientation: 'top',
           showCurrentTime: false,
+      
           tooltip: {
             followMouse: true,
             overflowMethod: 'cap',
@@ -950,7 +956,7 @@ div.vis-readonly.vis-selected {
           </div>
         `
           },
-          margin: { item: 5 },
+          margin: { item: 3 },
           zoomMin: 1000 * 60 * 60 * 24 * 7, // 1 week
           zoomMax: 1000 * 60 * 60 * 24 * 60, // 2 months
         };
@@ -973,6 +979,12 @@ div.vis-readonly.vis-selected {
       };
     }
   }).mount('#app');
+
+  document.querySelectorAll(".card-body").forEach((cardBody) => {
+    cardBody.addEventListener("click", function (event) {
+      event.stopPropagation(); // Prevent click event from bubbling up to the card
+    });
+  });
 </script>
 
 <script type="module">
