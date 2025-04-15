@@ -125,7 +125,7 @@ div.vis-readonly.vis-selected {
   }
   
   .card.expanded .card-body {
-    max-height: 2000px;
+    max-height: 10000px;
   }
   
   .toggle-icon {
@@ -658,9 +658,87 @@ div.vis-readonly.vis-selected {
       </div>
     </div>
   </div>
+
+<!--Demo Tab-->
+<div class="card" :class="{expanded: expandedSections.demo}" @click="toggleSection('demo')">
+  <div class="card-header">
+    <h2>{{ language === 'en' ? 'Application Demo' : '应用演示' }}</h2>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div class="card-body">
+    <div class="card-body-inner">
+      <p>
+        {{ language === 'en' 
+          ? 'This demo showcases the core capabilities of our market analysis application as of 2022. Each image reflects a specific feature or dataset available in the interface, helping users understand macroeconomic conditions, financial market trends, and investment insights at a glance.' 
+          : '该演示展示了我们市场分析应用在2022年的核心功能。每张图片反映了界面中的特定功能或数据集，帮助用户一目了然地了解宏观经济状况、金融市场趋势和投资洞察。' 
+        }}
+      </p>
+
+      <div class="demo-section">
+        <h3>{{ language === 'en' ? 'Global Economic Indicators' : '全球经济指标' }}</h3>
+        <div class="image-placeholder">
+          <p>{{ language === 'en' ? 'Table of countries with most recent GDP data.' : '包含最新GDP数据的国家表格。' }}</p>
+          <img src="./images/demo/Country_GDP.PNG" alt="GDP Table">
+        </div>
+        <div class="image-placeholder">
+          <p>{{ language === 'en' ? 'Country Indicators: Japan Consumer Price Index (CPI) trends.' : '日本消费者物价指数（CPI）趋势。' }}</p>
+          <img src="./images/demo/Japan_CPI.PNG" alt="Japan CPI Data">
+        </div>
+        <div class="image-placeholder">
+          <p>{{ language === 'en' ? 'Country Indicator:Japan government budget overview.' : '日本政府预算概览。' }}</p>
+          <img src="./images/demo/Japan_goverment_budget.PNG" alt="Japan Budget Data">
+        </div>
+        <div class="image-placeholder">
+          <p>{{ language === 'en' ? 'Japan monetary indicators (interest rate, M2, etc.).' : '日本货币指标（利率、M2等）。' }}</p>
+          <img src="./images/demo/Japan_money_indicator.PNG" alt="Japan Money Indicator">
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>{{ language === 'en' ? 'Market Analytics' : '市场分析' }}</h3>
+        <div class="image-placeholder">
+          <p>{{ language === 'en' ? 'Advanced stock scanner for filtering stocks across metrics.' : '用于根据多个指标筛选股票的高级股票扫描器。' }}</p>
+          <img src="./images/demo/Stock_Scanner.PNG" alt="Stock Scanner">
+        </div>
+        <div class="image-placeholder">
+          <p>{{ language === 'en' ? 'Live cryptocurrency prices across major tokens.' : '主要加密货币的实时价格。' }}</p>
+          <img src="./images/demo/CryptoCart.PNG" alt="Crypto Prices">
+        </div>
+        <div class="image-placeholder">
+          <p>{{ language === 'en' ? 'Aggregated financial news from multiple sources.' : '从多个来源聚合的金融新闻。' }}</p>
+          <img src="./images/demo/News_Blogs_Arigation.PNG" alt="Financial News Aggregator">
+        </div>
+        <div class="image-placeholder">
+          <p>{{ language === 'en' ? 'Industry performance over different timeframes (1M, 3M, 1Y).' : '不同行业在不同时间范围（1个月、3个月、1年）的表现。' }}</p>
+          <img src="./images/demo/industry_performance_across_different_time_scales.PNG" alt="Industry Performance">
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>{{ language === 'en' ? 'Market Visualization' : '市场可视化' }}</h3>
+        <div class="image-placeholder">
+          <p>{{ language === 'en' ? 'Sector-wide stock index map with market cap-based sizing.' : '按市值大小划分的股票市场板块可视化图。' }}</p>
+          <img src="./images/demo/Catagory_visualization_major_indexes.PNG" alt="Stock Sector Visualization">
+        </div>
+        <div class="image-placeholder">
+          <p>{{ language === 'en' ? 'Global stock indices visualization by region and company size.' : '按地区和公司市值划分的全球股指可视化图。' }}</p>
+          <img src="./images/demo/Major_index_views.PNG" alt="Global Stock Indices">
+        </div>
+        <div class="image-placeholder">
+          <p>{{ language === 'en' ? 'Table of insider trades recorded in the market.' : '市场中的内部交易数据表。' }}</p>
+          <img src="./images/demo/Insider_trading_table.PNG" alt="Insider Trading Table">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<h1 style="text-align: center;">📡 Microservices Architecture: Post-Migration</h1>
+
+
+
+</div>
+
+<h1 style="text-align: center;">📡 Microservices Architecture: Post-Migration</h1> 
 <architecture-diagram></architecture-diagram>
 
 <!-- <script src="./js/libs/vis-timeline-graph2d.min.js"></script> -->

@@ -510,6 +510,10 @@
 
   <!-- Footer -->
   <footer>
+    
+    <!-- <code-box>hello</code-box> -->
+    <!-- <h2 style="color:white;">Enter Code</h2> -->
+    <!-- <input id="code"></input> -->
   <p>certifications & documents</p>
   <slide-toggle target="#content">Show content</slide-toggle>
 <div id="content" style="display:none;">
@@ -666,7 +670,57 @@ new QRCode(document.getElementById("wechat-qr"), {
 
   <script src="js/main.js"></script>
 
+<!-- <script>
+  
+        class CodeBox extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'closed' }); // Encapsulated Shadow DOM
+                this.shadowRoot.innerHTML = `<style>
+                        #hiddenElement { display: none; padding: 10px; background: lightgreen; border: 1px solid green; margin-top: 10px; }
+                    </style>
+                    <input type="text" id="codeInput" placeholder="Enter code">
+                    <button id="submitBtn">Submit</button>
+                    <div id="hiddenElement">🎉 Congratulations! You've unlocked the secret.</div>
+                `;
 
+                this.correctCode = this.obfuscateCode("secret123"); // Obfuscated secret code
+                this.initSecurity();
+            }
+
+            obfuscateCode(code) {
+                return btoa([...code].map(char => String.fromCharCode(char.charCodeAt(0) + 3)).join(""));
+            }
+
+            deobfuscateCode(encoded) {
+                return [...atob(encoded)].map(char => String.fromCharCode(char.charCodeAt(0) - 3)).join("");
+            }
+
+            initSecurity() {
+                const input = this.shadowRoot.querySelector("#codeInput");
+                const button = this.shadowRoot.querySelector("#submitBtn");
+                const hiddenElement = this.shadowRoot.querySelector("#hiddenElement");
+
+                button.addEventListener("click", () => {
+                    const userCode = this.obfuscateCode(input.value);
+                    if (userCode === this.correctCode) {
+                        hiddenElement.style.display = "block";
+                    } else {
+                        alert("❌ Incorrect code! Try again.");
+                    }
+                });
+
+                // Mutation Observer to detect unauthorized HTML changes
+                new MutationObserver(() => {
+                    alert("⚠️ Tampering detected! Page will reset.");
+                    location.reload();
+                }).observe(document.body, { attributes: true, childList: true, subtree: true });
+            }
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+        customElements.define("code-box", CodeBox);
+        })
+</script> -->
 
   
 </body>
