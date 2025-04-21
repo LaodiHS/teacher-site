@@ -308,9 +308,6 @@
       </div>
   </section>
 
-
-<!-- <pdf-viewer src="/documents/Hasan_Seirafi_Teaching_Resume.pdf"></pdf-viewer> -->
-
   <section class="journey parallax" id="zhou"
     style="background-image: url('/images/fire_lady_1.jpg');">
     <div class="content">
@@ -459,23 +456,6 @@
   </section>
 
 
-
-  <!-- Add this section below your existing content -->
-  <!-- <section class="poverty-viz-section">
-  <h2>中国扶贫成就 / China's Poverty Alleviation</h2>
-  <div class="viz-container">
-    <div id="timeline-counter" class="counter"></div>
-    <svg id="poverty-chart"></svg>
-    <div class="viz-controls">
-      <button id="play-pause">▶ Play</button>
-      <div id="year-slider"></div>
-    </div>
-  </div>
-  <p class="viz-description">
-    自1978年以来，中国已使超过8亿人摆脱贫困 / Since 1978, China has lifted over 800 million people out of poverty
-  </p>
-</section> -->
-
   <section class="poverty-viz-section">
     <p class="viz-description">
       自1978年以来，中国已使超过8亿人摆脱贫困 / Since 1978, China has lifted over 800 million people out of poverty
@@ -511,14 +491,17 @@
   <!-- Footer -->
   <footer>
     
-    <!-- <code-box>hello</code-box> -->
-    <!-- <h2 style="color:white;">Enter Code</h2> -->
+    <!-- <code-box></code-box> -->
+    <h2 style="color:white;">Enter Code</h2>
     <!-- <input id="code"></input> -->
-  <p>certifications & documents</p>
-  <slide-toggle target="#content">Show content</slide-toggle>
-<div id="content" style="display:none;">
-  <document-viewer documents='[{"name": "TEFL Certificate.pdf", "url": "/documents/TEFL.pdf"},{"name": "Teaching Resume.pdf", "url": "/documents/Hasan_Seirafi_Teaching_Resume.pdf"}]'></document-viewer>
-</div>
+     <p>Certifications & Documents</p>
+    <slide-toggle target="#content">Show content</slide-toggle>
+    <div id="content" style="display:none;">
+      <document-viewer documents='[
+        { "name": "TEFL Certificate.pdf", "url": "/documents/TEFL.pdf" },
+        { "name": "Teaching Resume.pdf", "url": "/documents/Hasan_Seirafi_Teaching_Resume.pdf" }
+      ]'></document-viewer>
+    </div>
 
 
 
@@ -591,8 +574,7 @@
   <script src="./js/document-display.js"></script>
   <script src="./data/d3.v7.min.js"></script>
   <script src="./data/3d-force-graph.js"></script>
-  <!-- <script src="./data/helvetiker_regular.typeface.json"></script> -->
-  <!-- <script src="./js/OrbitControls.js"></script> -->
+
   <script src="./data/gsap.min.js"></script>
   <script src="./data/ScrollTrigger.min.js"></script>
   <script src="./js/magic-number-forest.js"></script>
@@ -609,10 +591,6 @@
     ]);
 
   </script>
-
-
-
-
 
   <!-- ForceGraph3D Script -->
   <script type="module">
@@ -657,70 +635,84 @@ new QRCode(document.getElementById("wechat-qr"), {
   
   </script>
 
-<script>
-
-</script>
 
 
-  <script>
-    // Optional: Programmatic control
-  //  const triangle = document.querySelector('pascal-triangle');
- //   triangle.setAttribute('cell-size', '50');
-  </script>
+
+
 
   <script src="js/main.js"></script>
 
-<!-- <script>
+  <script>
+
+    // --- CODE-BOX WEB COMPONENT ---
+    class CodeBox extends HTMLElement {
+      constructor() {
+        super();
+        this.correctCode = this.obfuscateCode("secret123");
+        this.attachShadow({ mode: 'open' });
+      }
   
-        class CodeBox extends HTMLElement {
-            constructor() {
-                super();
-                this.attachShadow({ mode: 'closed' }); // Encapsulated Shadow DOM
-                this.shadowRoot.innerHTML = `<style>
-                        #hiddenElement { display: none; padding: 10px; background: lightgreen; border: 1px solid green; margin-top: 10px; }
-                    </style>
-                    <input type="text" id="codeInput" placeholder="Enter code">
-                    <button id="submitBtn">Submit</button>
-                    <div id="hiddenElement">🎉 Congratulations! You've unlocked the secret.</div>
-                `;
-
-                this.correctCode = this.obfuscateCode("secret123"); // Obfuscated secret code
-                this.initSecurity();
+      connectedCallback() {
+        this.render();
+        this.setupEvents();
+      }
+  
+      obfuscateCode(code) {
+        return btoa([...code].map(c => String.fromCharCode(c.charCodeAt(0) + 3)).join(''));
+      }
+  
+      render() {
+        const tpl = document.createElement('template');
+        tpl.innerHTML = `
+          <style>
+            #hiddenElement {
+              display: none;
+              padding: 10px;
+              background: lightgreen;
+              border: 1px solid green;
+              margin-top: 10px;
             }
-
-            obfuscateCode(code) {
-                return btoa([...code].map(char => String.fromCharCode(char.charCodeAt(0) + 3)).join(""));
-            }
-
-            deobfuscateCode(encoded) {
-                return [...atob(encoded)].map(char => String.fromCharCode(char.charCodeAt(0) - 3)).join("");
-            }
-
-            initSecurity() {
-                const input = this.shadowRoot.querySelector("#codeInput");
-                const button = this.shadowRoot.querySelector("#submitBtn");
-                const hiddenElement = this.shadowRoot.querySelector("#hiddenElement");
-
-                button.addEventListener("click", () => {
-                    const userCode = this.obfuscateCode(input.value);
-                    if (userCode === this.correctCode) {
-                        hiddenElement.style.display = "block";
-                    } else {
-                        alert("❌ Incorrect code! Try again.");
-                    }
-                });
-
-                // Mutation Observer to detect unauthorized HTML changes
-                new MutationObserver(() => {
-                    alert("⚠️ Tampering detected! Page will reset.");
-                    location.reload();
-                }).observe(document.body, { attributes: true, childList: true, subtree: true });
-            }
-        }
-        document.addEventListener("DOMContentLoaded", () => {
-        customElements.define("code-box", CodeBox);
-        })
-</script> -->
+          </style>
+          <input type="text" id="codeInput" placeholder="Enter code">
+          <button id="submitBtn">Submit</button>
+          <div id="hiddenElement">
+            🎉 Congratulations! You've unlocked the secret.
+            <p>Certifications & Documents</p>
+            <slide-toggle target="#content">Show content</slide-toggle>
+            <div id="content" style="display:none;">
+              <document-viewer documents='[
+                { "name": "TEFL Certificate.pdf", "url": "/documents/TEFL.pdf" },
+                { "name": "Teaching Resume.pdf", "url": "/documents/Hasan_Seirafi_Teaching_Resume.pdf" }
+              ]'></document-viewer>
+            </div>
+          </div>
+        `;
+        this.shadowRoot.innerHTML = ''; // Clear first
+        this.shadowRoot.appendChild(tpl.content.cloneNode(true));
+      }
+  
+      setupEvents() {
+        const input = this.shadowRoot.querySelector("#codeInput");
+        const button = this.shadowRoot.querySelector("#submitBtn");
+        const hidden = this.shadowRoot.querySelector("#hiddenElement");
+  
+        button.addEventListener("click", () => {
+          const userCode = this.obfuscateCode(input.value.trim());
+          if (userCode === this.correctCode) {
+            hidden.style.display = "block";
+          } else {
+            alert("❌ Incorrect code! Try again.");
+          }
+        });
+      }
+    }
+  
+  
+  
+    if (!customElements.get("code-box")) customElements.define("code-box", CodeBox);
+  </script>
+  
+  
 
   
 </body>

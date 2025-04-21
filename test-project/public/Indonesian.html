@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Educator | Indonesian Culture</title>
+  
+  <!-- Ionicons for icons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  
+  <!-- Vue 3 CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  
+  <!-- Ionic Framework CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css">
+  
+  <script type="module">
+    import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/@ionic/core/loader/index.es2017.mjs';
+    defineCustomElements(window);
+  </script>
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  
+  <!-- Custom CSS -->
+  <style>
+    :root {
+      --ion-color-primary: #e67e22;
+      --ion-color-primary-rgb: 230,126,34;
+      --ion-color-primary-contrast: #ffffff;
+      --ion-color-primary-contrast-rgb: 255,255,255;
+      --ion-color-primary-shade: #ca6f1e;
+      --ion-color-primary-tint: #e98b38;
+      
+      --ion-color-secondary: #2ecc71;
+      --ion-color-secondary-rgb: 46,204,113;
+      --ion-color-secondary-contrast: #000000;
+      --ion-color-secondary-contrast-rgb: 0,0,0;
+      --ion-color-secondary-shade: #28b463;
+      --ion-color-secondary-tint: #43d17f;
+      
+      --ion-color-tertiary: #3498db;
+      --ion-color-tertiary-rgb: 52,152,219;
+      --ion-color-tertiary-contrast: #ffffff;
+      --ion-color-tertiary-contrast-rgb: 255,255,255;
+      --ion-color-tertiary-shade: #2e86c1;
+      --ion-color-tertiary-tint: #48a2df;
+      
+      --ion-background-color: #f9f9f9;
+      --ion-text-color: #333;
+    }
+    
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ion-background-color: #121212;
+        --ion-text-color: #f5f5f5;
+        --ion-item-background: #1e1e1e;
+      }
+    }
+    
+    /* Custom styles */
+    .hero-section {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                  url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    
+    .profile-avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid var(--ion-color-primary);
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+    
+    .culture-card {
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .culture-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .timeline {
+      position: relative;
+      padding-left: 50px;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--ion-color-primary);
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -40px;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--ion-color-secondary);
+      border: 3px solid var(--ion-color-primary);
+    }
+    
+    .parallax-section {
+      height: 60vh;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    
+    .parallax-overlay {
+      background: rgba(0,0,0,0.6);
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    
+    .animate-on-scroll {
+      opacity: 0;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+      
+      .profile-avatar {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .parallax-section {
+        height: 50vh;
+        background-attachment: scroll;
+      }
+    }
+    
+    /* TV specific styles */
+    @media (min-width: 1200px) {
+      .hero-section h1 {
+        font-size: 4rem;
+      }
+      
+      ion-card {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <ion-segment v-model="language">
+
+        <ion-segment-button value="en">
+          <ion-label>English</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="id">
+          <ion-label>Indonesia</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section animate__animated animate__fadeIn">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile" class="profile-avatar">
+      <h1 class="animate__animated animate__fadeInUp">{{ translations.heroTitle[language] }}</h1>
+      <p class="animate__animated animate__fadeInUp animate__delay-1s">{{ translations.heroSubtitle[language] }}</p>
+      <ion-button class="animate__animated animate__fadeInUp animate__delay-2s" fill="solid" color="primary" @click="scrollTo('about')">
+        {{ translations.learnMore[language] }}
+        <ion-icon slot="end" :icon="chevronDownOutline"></ion-icon>
+      </ion-button>
+    </section>
+
+    <!-- About Section -->
+    <ion-content>
+      <section id="about" class="ion-padding animate-on-scroll" :class="{visible: aboutVisible}" @vue:mounted="handleScroll">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <h2>{{ translations.aboutTitle[language] }}</h2>
+              <p>{{ translations.aboutContent[language] }}</p>
+            </ion-col>
+          </ion-row>
+          
+          <ion-row class="ion-justify-content-center ion-margin-top">
+            <ion-col size="12" size-md="4">
+              <ion-card class="animate-on-scroll" :class="{visible: card1Visible}" @vue:mounted="handleScroll">
+                <ion-card-header>
+                  <ion-card-title>{{ translations.teachingExp[language] }}</ion-card-title>
+                  <ion-card-subtitle>12+ {{ translations.years[language] }}</ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-list>
+                    <ion-item>
+                      <ion-icon slot="start" :icon="schoolOutline"></ion-icon>
+                      <ion-label>{{ translations.teachingItem1[language] }}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-icon slot="start" :icon="peopleOutline"></ion-icon>
+                      <ion-label>{{ translations.teachingItem2[language] }}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-icon slot="start" :icon="globeOutline"></ion-icon>
+                      <ion-label>{{ translations.teachingItem3[language] }}</ion-label>
+                    </ion-item>
+                  </ion-list>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+            
+            <ion-col size="12" size-md="4">
+              <ion-card class="animate-on-scroll" :class="{visible: card2Visible}" @vue:mounted="handleScroll">
+                <ion-card-header>
+                  <ion-card-title>{{ translations.methodology[language] }}</ion-card-title>
+                  <ion-card-subtitle>{{ translations.innovative[language] }}</ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-list>
+                    <ion-item>
+                      <ion-icon slot="start" :icon="bulbOutline"></ion-icon>
+                      <ion-label>{{ translations.methodItem1[language] }}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-icon slot="start" :icon="chatbubblesOutline"></ion-icon>
+                      <ion-label>{{ translations.methodItem2[language] }}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-icon slot="start" :icon="statsChartOutline"></ion-icon>
+                      <ion-label>{{ translations.methodItem3[language] }}</ion-label>
+                    </ion-item>
+                  </ion-list>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+            
+            <ion-col size="12" size-md="4">
+              <ion-card class="animate-on-scroll" :class="{visible: card3Visible}" @vue:mounted="handleScroll">
+                <ion-card-header>
+                  <ion-card-title>{{ translations.achievements[language] }}</ion-card-title>
+                  <ion-card-subtitle>{{ translations.recognition[language] }}</ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-list>
+                    <ion-item>
+                      <ion-icon slot="start" :icon="trophyOutline"></ion-icon>
+                      <ion-label>{{ translations.achieveItem1[language] }}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-icon slot="start" :icon="ribbonOutline"></ion-icon>
+                      <ion-label>{{ translations.achieveItem2[language] }}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-icon slot="start" :icon="bookOutline"></ion-icon>
+                      <ion-label>{{ translations.achieveItem3[language] }}</ion-label>
+                    </ion-item>
+                  </ion-list>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </section>
+
+      <!-- Indonesian Culture Section -->
+      <section id="culture" class="ion-padding animate-on-scroll" :class="{visible: cultureVisible}" @vue:mounted="handleScroll">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <h2>{{ translations.cultureTitle[language] }}</h2>
+              <p>{{ translations.cultureIntro[language] }}</p>
+            </ion-col>
+          </ion-row>
+          
+          <ion-row>
+            <ion-col size="12" size-md="6" size-lg="3" v-for="(item, index) in cultureItems" :key="index">
+              <ion-card class="culture-card animate-on-scroll" :class="{visible: cultureCardsVisible[index]}" @vue:mounted="handleScroll">
+                <img :src="item.image" :alt="item.title[language]" style="height: 200px; object-fit: cover;">
+                <ion-card-header>
+                  <ion-card-title>{{ item.title[language] }}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <p>{{ item.description[language] }}</p>
+                  <ion-button fill="clear" @click="openModal(item)">
+                    {{ translations.learnMore[language] }}
+                    <ion-icon slot="end" :icon="arrowForwardOutline"></ion-icon>
+                  </ion-button>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </section>
+
+      <!-- Teaching Timeline -->
+      <section id="timeline" class="ion-padding animate-on-scroll" :class="{visible: timelineVisible}" @vue:mounted="handleScroll">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <h2>{{ translations.timelineTitle[language] }}</h2>
+              <div class="timeline">
+                <div class="timeline-item" v-for="(item, index) in timelineItems" :key="index">
+                  <h3>{{ item.year }}</h3>
+                  <h4>{{ item.title[language] }}</h4>
+                  <p>{{ item.description[language] }}</p>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </section>
+
+      <!-- Parallax Section -->
+      <section class="parallax-section" style="background-image: url('https://images.unsplash.com/photo-1526779259212-939e64788e3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80');">
+        <div class="parallax-overlay animate-on-scroll" :class="{visible: parallaxVisible}" @vue:mounted="handleScroll">
+          <h2>{{ translations.parallaxTitle[language] }}</h2>
+          <p>{{ translations.parallaxContent[language] }}</p>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="ion-padding animate-on-scroll" :class="{visible: contactVisible}" @vue:mounted="handleScroll">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <h2>{{ translations.contactTitle[language] }}</h2>
+            </ion-col>
+          </ion-row>
+          
+          <ion-row class="ion-justify-content-center">
+            <ion-col size="12" size-md="6">
+              <ion-card>
+                <ion-card-content>
+                  <form @submit.prevent="sendMessage">
+                    <ion-item>
+                      <ion-label position="floating">{{ translations.name[language] }}</ion-label>
+                      <ion-input type="text" required v-model="contact.name"></ion-input>
+                    </ion-item>
+                    
+                    <ion-item>
+                      <ion-label position="floating">{{ translations.email[language] }}</ion-label>
+                      <ion-input type="email" required v-model="contact.email"></ion-input>
+                    </ion-item>
+                    
+                    <ion-item>
+                      <ion-label position="floating">{{ translations.message[language] }}</ion-label>
+                      <ion-textarea rows="5" required v-model="contact.message"></ion-textarea>
+                    </ion-item>
+                    
+                    <ion-button type="submit" expand="block" class="ion-margin-top">
+                      {{ translations.send[language] }}
+                      <ion-icon slot="end" :icon="sendOutline"></ion-icon>
+                    </ion-button>
+                  </form>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+            
+            <ion-col size="12" size-md="6">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>{{ translations.connect[language] }}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-list>
+                    <ion-item>
+                      <ion-icon slot="start" :icon="mailOutline"></ion-icon>
+                      <ion-label>teacher@example.com</ion-label>
+                    </ion-item>
+                    
+                    <ion-item href="https://wa.me/6281234567890" target="_blank">
+                      <ion-icon slot="start" :icon="logoWhatsapp"></ion-icon>
+                      <ion-label>+62 812-3456-7890</ion-label>
+                    </ion-item>
+                    
+                    <ion-item href="https://linkedin.com/in/teacher" target="_blank">
+                      <ion-icon slot="start" :icon="logoLinkedin"></ion-icon>
+                      <ion-label>LinkedIn</ion-label>
+                    </ion-item>
+                  </ion-list>
+                  
+                  <div class="ion-margin-top">
+                    <ion-button fill="clear" size="small">
+                      <ion-icon :icon="logoFacebook"></ion-icon>
+                    </ion-button>
+                    <ion-button fill="clear" size="small">
+                      <ion-icon :icon="logoTwitter"></ion-icon>
+                    </ion-button>
+                    <ion-button fill="clear" size="small">
+                      <ion-icon :icon="logoInstagram"></ion-icon>
+                    </ion-button>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </section>
+    </ion-content>
+
+    <!-- Modal for Culture Items -->
+    <ion-modal v-if="modalOpen" @didDismiss="modalOpen = false">
+
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{ selectedItem?.title[language] }}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button @click="modalOpen = false">
+              <ion-icon slot="icon-only" :icon="closeOutline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <img :src="selectedItem?.image" :alt="selectedItem?.title[language]" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px;">
+        <p class="ion-margin-top">{{ selectedItem?.description[language] }}</p>
+        <p>{{ selectedItem?.details[language] }}</p>
+      </ion-content>
+    </ion-modal>
+
+    <!-- Footer -->
+    <ion-footer>
+      <ion-toolbar>
+        <ion-title class="ion-text-center">
+          {{ translations.footer[language] }}
+        </ion-title>
+      </ion-toolbar>
+    </ion-footer>
+  </div>
+
+  <!-- Ionic JS -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+  
+  <script>
+    const { createApp, ref, onMounted } = Vue;
+    
+    createApp({
+      setup() {
+        // Language management
+        const language = ref('en');
+        
+        const changeLanguage = (ev) => {
+          language.value = ev.detail.value;
+        };
+        
+        // Scroll animations
+        const aboutVisible = ref(false);
+        const card1Visible = ref(false);
+        const card2Visible = ref(false);
+        const card3Visible = ref(false);
+        const cultureVisible = ref(false);
+        const cultureCardsVisible = ref([false, false, false, false]);
+        const timelineVisible = ref(false);
+        const parallaxVisible = ref(false);
+        const contactVisible = ref(false);
+        
+        const handleScroll = () => {
+          const elements = document.querySelectorAll('.animate-on-scroll');
+          
+          elements.forEach((element, index) => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementBottom = element.getBoundingClientRect().bottom;
+            
+            if (elementTop < window.innerHeight && elementBottom > 0) {
+              if (element.id === 'about') aboutVisible.value = true;
+              if (element.id === 'culture') cultureVisible.value = true;
+              if (element.id === 'timeline') timelineVisible.value = true;
+              if (element.classList.contains('parallax-overlay')) parallaxVisible.value = true;
+              if (element.id === 'contact') contactVisible.value = true;
+              
+              if (element.classList.contains('culture-card')) {
+                const cardIndex = Array.from(element.parentNode.children).indexOf(element);
+                cultureCardsVisible.value[cardIndex] = true;
+              }
+              
+              if (element.parentNode.id === 'about' && element.classList.contains('ion-card')) {
+                if (index % 3 === 0) card1Visible.value = true;
+                if (index % 3 === 1) card2Visible.value = true;
+                if (index % 3 === 2) card3Visible.value = true;
+              }
+            }
+          });
+        };
+        
+        onMounted(() => {
+          window.addEventListener('scroll', handleScroll);
+          handleScroll(); // Check on initial load
+        });
+        
+        // Modal functionality
+        const modalOpen = ref(false);
+        const selectedItem = ref(null);
+        
+        const openModal = (item) => {
+          selectedItem.value = item;
+          modalOpen.value = true;
+        };
+        
+        // Contact form
+        const contact = ref({
+          name: '',
+          email: '',
+          message: ''
+        });
+        
+        const sendMessage = () => {
+          alert(language.value === 'en' ? 'Message sent successfully!' : 'Pesan berhasil dikirim!');
+          contact.value = { name: '', email: '', message: '' };
+        };
+        
+        // Scroll to section
+        const scrollTo = (sectionId) => {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        };
+        
+        // Translations
+        const translations = {
+          heroTitle: {
+            en: "Global Educator & Cultural Ambassador",
+            id: "Pendidik Global & Duta Budaya"
+          },
+          heroSubtitle: {
+            en: "Bridging education and Indonesian cultural heritage",
+            id: "Menjembatani pendidikan dan warisan budaya Indonesia"
+          },
+          learnMore: {
+            en: "Learn More",
+            id: "Pelajari Lebih Lanjut"
+          },
+          aboutTitle: {
+            en: "About Me",
+            id: "Tentang Saya"
+          },
+          aboutContent: {
+            en: "With over 12 years of international teaching experience, I combine modern pedagogy with deep appreciation for Indonesian cultural heritage to create transformative learning experiences.",
+            id: "Dengan lebih dari 12 tahun pengalaman mengajar internasional, saya menggabungkan pedagogi modern dengan penghargaan mendalam terhadap warisan budaya Indonesia untuk menciptakan pengalaman belajar yang transformatif."
+          },
+          teachingExp: {
+            en: "Teaching Experience",
+            id: "Pengalaman Mengajar"
+          },
+          years: {
+            en: "years",
+            id: "tahun"
+          },
+          teachingItem1: {
+            en: "International schools in 5 countries",
+            id: "Sekolah internasional di 5 negara"
+          },
+          teachingItem2: {
+            en: "500+ students from diverse backgrounds",
+            id: "500+ siswa dari berbagai latar belakang"
+          },
+          teachingItem3: {
+            en: "Specialized in ESL and cultural studies",
+            id: "Spesialis dalam ESL dan studi budaya"
+          },
+          methodology: {
+            en: "Methodology",
+            id: "Metodologi"
+          },
+          innovative: {
+            en: "Innovative Approaches",
+            id: "Pendekatan Inovatif"
+          },
+          methodItem1: {
+            en: "Student-centered learning",
+            id: "Pembelajaran berpusat pada siswa"
+          },
+          methodItem2: {
+            en: "Communicative language teaching",
+            id: "Pengajaran bahasa komunikatif"
+          },
+          methodItem3: {
+            en: "Cultural immersion techniques",
+            id: "Teknik perendaman budaya"
+          },
+          achievements: {
+            en: "Achievements",
+            id: "Prestasi"
+          },
+          recognition: {
+            en: "Professional Recognition",
+            id: "Pengakuan Profesional"
+          },
+          achieveItem1: {
+            en: "Outstanding Educator Award 2020",
+            id: "Penghargaan Pendidik Berprestasi 2020"
+          },
+          achieveItem2: {
+            en: "Published 3 teaching methodology books",
+            id: "Menerbitkan 3 buku metodologi pengajaran"
+          },
+          achieveItem3: {
+            en: "Keynote speaker at 5 international conferences",
+            id: "Pembicara utama di 5 konferensi internasional"
+          },
+          cultureTitle: {
+            en: "Indonesian Cultural Heritage",
+            id: "Warisan Budaya Indonesia"
+          },
+          cultureIntro: {
+            en: "Explore the rich cultural tapestry of Indonesia that I incorporate into my teaching approach",
+            id: "Jelajahi kekayaan budaya Indonesia yang saya masukkan ke dalam pendekatan pengajaran saya"
+          },
+          timelineTitle: {
+            en: "My Teaching Journey",
+            id: "Perjalanan Mengajar Saya"
+          },
+          parallaxTitle: {
+            en: "Education Meets Culture",
+            id: "Pendidikan Bertemu Budaya"
+          },
+          parallaxContent: {
+            en: "My teaching philosophy integrates language acquisition with cultural understanding, creating meaningful connections between students and the diverse traditions of Indonesia.",
+            id: "Filosofi pengajaran saya mengintegrasikan pemerolehan bahasa dengan pemahaman budaya, menciptakan hubungan yang bermakna antara siswa dan tradisi beragam Indonesia."
+          },
+          contactTitle: {
+            en: "Get In Touch",
+            id: "Hubungi Saya"
+          },
+          name: {
+            en: "Name",
+            id: "Nama"
+          },
+          email: {
+            en: "Email",
+            id: "Email"
+          },
+          message: {
+            en: "Message",
+            id: "Pesan"
+          },
+          send: {
+            en: "Send Message",
+            id: "Kirim Pesan"
+          },
+          connect: {
+            en: "Connect With Me",
+            id: "Terhubung Dengan Saya"
+          },
+          footer: {
+            en: "© 2023 Global Educator | All Rights Reserved",
+            id: "© 2023 Pendidik Global | Hak Cipta Dilindungi"
+          }
+        };
+        
+        // Culture items
+        const cultureItems = ref([
+          {
+            title: {
+              en: "Wayang Kulit",
+              id: "Wayang Kulit"
+            },
+            description: {
+              en: "The ancient art of shadow puppetry",
+              id: "Seni kuno wayang kulit"
+            },
+            details: {
+              en: "Wayang Kulit is a traditional form of puppet-shadow play originally found in Java and Bali. The performances depict episodes from Hindu epics like the Mahabharata and Ramayana, adapted with Javanese cultural values. The puppets are made from buffalo hide and mounted on bamboo sticks. The dalang (puppeteer) manipulates the puppets, narrates the story, and provides voices for all characters while leading the gamelan orchestra.",
+              id: "Wayang Kulit adalah bentuk tradisional pertunjukan bayangan wayang yang awalnya ditemukan di Jawa dan Bali. Pertunjukan ini menggambarkan episode dari epik Hindu seperti Mahabharata dan Ramayana, yang diadaptasi dengan nilai-nilai budaya Jawa. Wayang terbuat dari kulit kerbau dan dipasang pada tongkat bambu. Dalang (pemain wayang) memanipulasi wayang, menarasikan cerita, dan memberikan suara untuk semua karakter sambil memimpin orkestra gamelan."
+            },
+            image: "https://images.unsplash.com/photo-1568659358810-bdbdb4decb5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          },
+          {
+            title: {
+              en: "Batik",
+              id: "Batik"
+            },
+            description: {
+              en: "Indonesia's iconic textile art",
+              id: "Seni tekstil ikonik Indonesia"
+            },
+            details: {
+              en: "Batik is a technique of wax-resist dyeing applied to whole cloth. Recognized by UNESCO as a Masterpiece of Oral and Intangible Heritage of Humanity, Indonesian batik has patterns and motifs that vary by region, each with symbolic meaning. The traditional process involves applying wax with a canting (a copper wax pen) or cap (copper stamp), dyeing the cloth, then boiling it to remove the wax, revealing the intricate patterns.",
+              id: "Batik adalah teknik pewarnaan tahan lilin yang diterapkan pada seluruh kain. Diakui oleh UNESCO sebagai Karya Agung Warisan Budaya Lisan dan Nonbendawi Manusia, batik Indonesia memiliki pola dan motif yang bervariasi menurut daerah, masing-masing dengan makna simbolis. Proses tradisional melibatkan penerapan lilin dengan canting atau cap, mewarnai kain, kemudian merebusnya untuk menghilangkan lilin, mengungkapkan pola yang rumit."
+            },
+            image: "https://images.unsplash.com/photo-1610395219791-21b035e8bf31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+          },
+          {
+            title: {
+              en: "Gamelan",
+              id: "Gamelan"
+            },
+            description: {
+              en: "The soulful ensemble music",
+              id: "Musik ansambel yang penuh jiwa"
+            },
+            details: {
+              en: "Gamelan is a traditional musical ensemble from Java and Bali, consisting mainly of percussive instruments like metallophones, xylophones, gongs, and drums, often accompanied by flute and vocalists. The intricate interlocking melodic patterns (kotekan) and cyclic rhythmic structures create a hypnotic, shimmering sound. Gamelan music is integral to rituals, ceremonies, and traditional theater, with each instrument having a specific role in the complex polyphonic texture.",
+              id: "Gamelan adalah ansambel musik tradisional dari Jawa dan Bali, terdiri terutama dari instrumen perkusi seperti metallofon, xylofon, gong, dan drum, sering diiringi seruling dan vokalis. Pola melodi yang saling terkait rumit (kotekan) dan struktur ritmik siklik menciptakan suara yang hipnotis dan berkilau. Musik gamelan merupakan bagian integral dari ritual, upacara, dan teater tradisional, dengan setiap instrumen memiliki peran khusus dalam tekstur polifonik yang kompleks."
+            },
+            image: "https://images.unsplash.com/photo-1596727147705-61a532a659bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+          },
+          {
+            title: {
+              en: "Borobudur",
+              id: "Borobudur"
+            },
+            description: {
+              en: "The world's largest Buddhist temple",
+              id: "Candi Buddha terbesar di dunia"
+            },
+            details: {
+              en: "Borobudur is a 9th-century Mahayana Buddhist temple in Central Java, Indonesia. This UNESCO World Heritage Site is the world's largest Buddhist temple, built as a single large stupa with nine stacked platforms—six square and three circular—topped by a central dome. The temple is adorned with 2,672 relief panels and 504 Buddha statues. The monument guides pilgrims through an extensive system of stairways and corridors with over 1,460 narrative relief panels illustrating Buddhist teachings.",
+              id: "Borobudur adalah candi Buddha Mahayana abad ke-9 di Jawa Tengah, Indonesia. Situs Warisan Dunia UNESCO ini adalah candi Buddha terbesar di dunia, dibangun sebagai satu stupa besar dengan sembilan platform bertumpuk—enam persegi dan tiga melingkar—diatapi oleh kubah pusat. Candi ini dihiasi dengan 2.672 panel relief dan 504 patung Buddha. Monumen ini memandu peziarah melalui sistem tangga dan koridor yang luas dengan lebih dari 1.460 panel relief naratif yang menggambarkan ajaran Buddha."
+            },
+            image: "https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80"
+          }
+        ]);
+        
+        // Timeline items
+        const timelineItems = ref([
+          {
+            year: "2010",
+            title: {
+              en: "Began Teaching Career",
+              id: "Memulai Karir Mengajar"
+            },
+            description: {
+              en: "Started as an English teacher at an international school in Jakarta",
+              id: "Memulai sebagai guru bahasa Inggris di sekolah internasional di Jakarta"
+            }
+          },
+          {
+            year: "2013",
+            title: {
+              en: "Cultural Education Focus",
+              id: "Fokus Pendidikan Budaya"
+            },
+            description: {
+              en: "Developed curriculum integrating Indonesian cultural studies with language learning",
+              id: "Mengembangkan kurikulum yang mengintegrasikan studi budaya Indonesia dengan pembelajaran bahasa"
+            }
+          },
+          {
+            year: "2016",
+            title: {
+              en: "International Recognition",
+              id: "Pengakuan Internasional"
+            },
+            description: {
+              en: "Awarded for innovative teaching methods at ASEAN Education Forum",
+              id: "Memperoleh penghargaan untuk metode pengajaran inovatif di Forum Pendidikan ASEAN"
+            }
+          },
+          {
+            year: "2019",
+            title: {
+              en: "Published Methodology Book",
+              id: "Menerbitkan Buku Metodologi"
+            },
+            description: {
+              en: "Released 'Bridging Cultures Through Language' teaching guide",
+              id: "Merilis panduan mengajar 'Menjembatani Budaya Melalui Bahasa'"
+            }
+          },
+          {
+            year: "2022",
+            title: {
+              en: "Global Education Consultant",
+              id: "Konsultan Pendidikan Global"
+            },
+            description: {
+              en: "Started consulting for schools worldwide on cultural integration in education",
+              id: "Mulai berkonsultasi untuk sekolah di seluruh dunia tentang integrasi budaya dalam pendidikan"
+            }
+          }
+        ]);
+        
+        // Icons
+        const chevronDownOutline = ref('chevron-down-outline');
+        const schoolOutline = ref('school-outline');
+        const peopleOutline = ref('people-outline');
+        const globeOutline = ref('globe-outline');
+        const bulbOutline = ref('bulb-outline');
+        const chatbubblesOutline = ref('chatbubbles-outline');
+        const statsChartOutline = ref('stats-chart-outline');
+        const trophyOutline = ref('trophy-outline');
+        const ribbonOutline = ref('ribbon-outline');
+        const bookOutline = ref('book-outline');
+        const arrowForwardOutline = ref('arrow-forward-outline');
+        const mailOutline = ref('mail-outline');
+        const logoWhatsapp = ref('logo-whatsapp');
+        const logoLinkedin = ref('logo-linkedin');
+        const logoFacebook = ref('logo-facebook');
+        const logoTwitter = ref('logo-twitter');
+        const logoInstagram = ref('logo-instagram');
+        const sendOutline = ref('send-outline');
+        const closeOutline = ref('close-outline');
+        
+        return {
+          language,
+          changeLanguage,
+          aboutVisible,
+          card1Visible,
+          card2Visible,
+          card3Visible,
+          cultureVisible,
+          cultureCardsVisible,
+          timelineVisible,
+          parallaxVisible,
+          contactVisible,
+          handleScroll,
+          modalOpen,
+          selectedItem,
+          openModal,
+          contact,
+          sendMessage,
+          scrollTo,
+          translations,
+          cultureItems,
+          timelineItems,
+          chevronDownOutline,
+          schoolOutline,
+          peopleOutline,
+          globeOutline,
+          bulbOutline,
+          chatbubblesOutline,
+          statsChartOutline,
+          trophyOutline,
+          ribbonOutline,
+          bookOutline,
+          arrowForwardOutline,
+          mailOutline,
+          logoWhatsapp,
+          logoLinkedin,
+          logoFacebook,
+          logoTwitter,
+          logoInstagram,
+          sendOutline,
+          closeOutline
+        };
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>

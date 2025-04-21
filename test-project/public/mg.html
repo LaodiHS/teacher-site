@@ -226,6 +226,12 @@ div.vis-readonly.vis-selected {
   font-size: 10px; /* Changes font size for labels and items */
 }
 
+
+  image-annotator {
+    display: block;
+    width: 100%;
+    height: 700px;
+  }
 </style>
 </head>
 <body>
@@ -578,9 +584,9 @@ div.vis-readonly.vis-selected {
   </div>
   
   <!-- Challenges Card -->
-  <div class="card" :class="{expanded: expandedSections.challenges}" @click="toggleSection('challenges')">
+  <div class="card" :class="{expanded: expandedSections.hurdles}" @click="toggleSection('hurdles')">
     <div class="card-header">
-      <h2>{{ language === 'en' ? 'Challenges & Solutions' : '挑战与解决方案' }}</h2>
+      <h2>{{ language === 'en' ? 'Strategic Engineering Decisions' : '战略性工程决策' }}</h2>
       <span class="toggle-icon">▼</span>
     </div>
     <div class="card-body">
@@ -816,14 +822,179 @@ Hasan
   </div>
 </div>
 
+<div class="card" :class="{expanded: expandedSections.challanges}" @click="toggleSection('challanges')"> 
+  <div class="card-header">
+    <h2>{{ language === 'en' ? 'Challenges & Solutions' : '挑战与解决方案' }}</h2>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div class="card-body">
+    <div class="card-body-inner">
+      <table>
+        <thead>
+          <tr>
+            <th>{{ language === 'en' ? 'Challenge' : '挑战' }}</th>
+            <th>{{ language === 'en' ? 'Solution & Outcome' : '解决方案与结果' }}</th>
+            <th>{{ language === 'en' ? 'Technologies Used' : '使用技术' }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <!-- {{ language === 'en' ?  -->
+              'Prioritizing Legacy Refactor vs. New Feature'
+               <!-- :  -->
+              <br/>
+              '在重构旧模块与开发新功能之间做取舍' 
+            <!-- }} -->
+            </td>
+            <td>
+              <!-- {{ language === 'en' ? -->
+              "Assessed user impact, business alignment, and maintenance burden. At IntelliTech, refactored the payment module over dark mode after a 20% failure rate was reported. For revenue-critical features, prototyped quickly while allocating 20% of sprint bandwidth to legacy improvements. Rewriting analytics engine cut support tickets by 40%." 
+              <!-- : -->
+               <br/>
+              "基于用户影响、业务收益与维护成本进行评估。在IntelliTech中，由于支付模块失败率高达20%，选择优先重构该模块而非开发暗黑模式。针对能带来收益的新功能快速开发原型，并保留20%的迭代资源用于优化旧代码。重写分析引擎后，支持请求减少40%。" 
+            <!-- }} -->
+            </td>
+            <td>Django, Jira, Stakeholder Dashboards</td>
+          </tr>
+
+          <tr>
+            <td>
+              <!-- {{ language === 'en' ?  -->
+              'Resolving Architectural Disagreements' 
+              <!-- :  -->
+              <br/>
+              '解决架构选型分歧' 
+            <!-- }} -->
+            </td>
+            <td>
+              <!-- {{ language === 'en' ? -->
+              "Disputed EC2 vs. Lambda for analytics engine. Ran a cost-performance analysis: Lambda was 30% cheaper for spiky workloads. Piloted with non-critical jobs (weekly reports). Final architecture: EC2 for core processing, Lambda for async tasks—cut monthly costs by $8k." 
+              <!-- : -->
+              <br/>
+              "在分析引擎架构上对EC2与Lambda有分歧。通过成本性能分析发现Lambda在突发性任务上便宜30%。先在非关键任务（如周报生成）中试点，最终采用EC2处理核心任务、Lambda处理异步任务的混合架构，每月节省成本$8,000。" 
+            <!-- }} -->
+            </td>
+            <td>AWS EC2, AWS Lambda, S3, SQS</td>
+          </tr>
+
+          <tr>
+            <td>
+              <!-- {{  -->
+                <!-- language === 'en'  -->
+              <!-- ?  -->
+              'Managing Technical Debt Strategically' 
+              <!-- :  -->
+              <br/>
+              '战略性管理技术债务' 
+            <!-- }} -->
+            </td>
+            <td>
+              <!-- {{ language === 'en' ? -->
+              "Classified debt into: Critical (e.g., security or scaling blockers), High-ROI (enabling future features), and Documented Low-Impact (tracked in Jira). At IntelliTech, postponed UI overhaul to first fix Spark memory leaks—reduced AWS spend by $15k/month." 
+              <!-- : -->
+               <br />
+              "将技术债务分为三类：关键（如安全性或可扩展性障碍）、高投资回报（可解锁未来功能）、已记录的低影响（用Jira跟踪）。例如，优先修复Spark内存泄漏问题而延后UI升级，每月节省AWS成本$15,000。" 
+            <!-- }} -->
+            </td>
+            <td>Apache Spark, MongoDB, Jira, Metrics Dashboard</td>
+          </tr>
+
+          <tr>
+            <td>
+              <!-- {{ language === 'en' ?  -->
+              'Designing for 10x User Load' 
+              <!-- :  -->
+               <br/>
+              '为10倍用户负载进行系统设计' 
+            <!-- }} -->
+            </td>
+            <td>
+              <!-- {{ language === 'en' ? -->
+              "Identified bottlenecks via load testing. Replaced PostgreSQL with Aurora + read replicas (cut DB load 60%). Cached hot API data in Redis (reduced latency from 1.2s to 150ms). Offloaded report generation to AWS Lambda with SQS buffering." 
+              <!-- : -->
+              <br/>
+              "通过压力测试识别系统瓶颈。将PostgreSQL替换为Aurora并使用只读副本，数据库负载下降60%。将热门API数据缓存至Redis，延迟从1.2秒降低至150毫秒。使用Lambda配合SQS异步处理报告生成任务。" 
+            <!-- }} -->
+            </td>
+            <td>Aurora, Redis, AWS Lambda, SQS, Load Testing Tools</td>
+          </tr>
+          <tr>
+            <td>
+              <!-- {{ language === 'en' ?  -->
+              'Balancing Control vs. Operational Efficiency in Cloud Architecture' 
+              <!-- :  -->
+              <br/>
+              '在云架构中权衡控制与运维效率' 
+            <!-- }} -->
+            </td>
+            <td>
+              <!-- {{ language === 'en' ? -->
+              "During IntelliTech's cloud migration, a teammate insisted on EC2 for our analytics engine, citing control. I proposed Lambda to reduce ops load. I ran a cost-benefit analysis showing Lambda was 30% cheaper for spiky workloads. We piloted it on non-critical jobs like weekly reports. Ultimately, we used EC2 for core real-time pipelines and Lambda for auxiliary workloads. This hybrid cut costs by $8K/month and became our default pattern. It reinforced that data, not dogma, drives architectural choices."
+               <!-- : -->
+                <br />
+              "在IntelliTech的云迁移中，一位同事坚持使用EC2部署分析引擎以获得更多控制权。我建议使用Lambda以降低小团队的运维负担。通过成本效益分析，发现Lambda在应对突发负载方面便宜30%。我们在非关键任务（如周报）上试点。最终核心任务使用EC2，辅助任务用Lambda，实现混合架构。每月节省$8,000，并成为默认标准。该经历让我认识到技术选型应基于数据而非教条。" 
+            <!-- }} -->
+            </td>
+            <td>AWS EC2, AWS Lambda, Cost Explorer, S3, SQS</td>
+          </tr>
+
+          <tr>
+            <td>
+              <!-- {{ language === 'en' ?  -->
+              'Real-Time vs. Batch Processing Trade-offs' 
+              <!-- :  -->
+              '实时处理与批处理的权衡' 
+            <!-- }} -->
+            </td>
+            <td>
+              <!-- {{ language === 'en' ?  -->
+              "In our dashboard prototype, we faced a key trade-off: real-time updates vs. performance. Initial WebSocket-based real-time processing caused 2s latency at peak. We benchmarked and split data flows—stock trends stayed real-time, while ancillary data like historical comparisons were batch-updated every 5 minutes. This cut latency to 200ms and reduced AWS costs by 22%. On the UI side, we balanced modularity and speed: used React for flexibility, but lazy-loaded components to minimize bundle size." 
+              <!-- :  -->
+               <br/>
+              "在仪表盘原型中，我们面临一个关键权衡：实时更新与系统性能。最初使用WebSocket进行全量实时处理，在高峰期导致2秒延迟。我们进行基准测试后决定：将关键数据（如股市趋势）保持实时，其它数据（如历史比较）每5分钟批处理一次。这将延迟降至200毫秒，AWS成本降低22%。前端方面，我们在灵活性与性能之间平衡：选用React实现模块化，并通过懒加载减少打包体积。" 
+            <!-- }} -->
+            </td>
+            <td>WebSockets, React, AWS Lambda, Batch Jobs, Lazy Loading</td>
+          </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
 
 
 
 </div>
 
+
+<div>
+  <h1 style="text-align: center;">⛵ Microservices Architecture: Sailboat Metaphor/ 微服务架构：帆船隐喻</h1> 
+
+<strategic-metaphor></strategic-metaphor>
+<h2>Drag each ** tag to its most appropriate position</h2>
+<h2>将每个标签拖动到最合适的位置</h2>
+<image-annotator src="./images/demo/cat.jpg" 
+style="display: block; width: 100%; height: 500px;"></image-annotator>
 <h1 style="text-align: center;">📡 Microservices Architecture: Post-Migration</h1> 
 <architecture-diagram></architecture-diagram>
+Resume:
+<document-viewer documents='[
 
+{ "name": "Resume", "url": "/documents/TP-Link_resume.pdf" },
+{ "name": "TEFL Certificate", "url": "/documents/TEFL.pdf" }
+]'></document-viewer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/konva@9.3.0/konva.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<script src="./js/document-display.js"></script>
+<script src="./js/components/strategic-metaphor.js"></script>
+<script src="./js/libs/imageAnnotate.js"></script>
 <!-- <script src="./js/libs/vis-timeline-graph2d.min.js"></script> -->
 <!-- <script src="https://cdpn.io/cpe/boomboom/pen.js?key=pen.js-7be91697-d4b2-6915-eddb-7671ee8fea54" ></script> -->
 <script src="https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.min.js"></script>
