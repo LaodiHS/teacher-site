@@ -158,6 +158,7 @@ class DocumentViewer extends HTMLElement {
       this.state.totalPages = this.pdfDoc.numPages;
       this.renderPage();
     } catch (error) {
+      console.error('Error loading PDF:', error);
       this.showError('Failed to load document.');
     }
   }
