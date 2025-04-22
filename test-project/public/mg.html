@@ -848,6 +848,13 @@ Hasan
             <!-- }} -->
             </td>
             <td>
+              <auto-scale-image 
+              aspect="16:16" 
+              
+              alt="Sample Dog"
+              max="400px 200px" 
+              fallback="https://via.placeholder.com/800x450?text=Image+Unavailable"
+              src="./images/demo/broken_pipe.jpg"></auto-scale-image>
               <!-- {{ language === 'en' ? -->
               "Assessed user impact, business alignment, and maintenance burden. At IntelliTech, refactored the payment module over dark mode after a 20% failure rate was reported. For revenue-critical features, prototyped quickly while allocating 20% of sprint bandwidth to legacy improvements. Rewriting analytics engine cut support tickets by 40%." 
               <!-- : -->
@@ -939,7 +946,9 @@ Hasan
             <td>AWS EC2, AWS Lambda, Cost Explorer, S3, SQS</td>
           </tr>
 
+           
           <tr>
+        
             <td>
               <!-- {{ language === 'en' ?  -->
               'Real-Time vs. Batch Processing Trade-offs' 
@@ -948,17 +957,27 @@ Hasan
             <!-- }} -->
             </td>
             <td>
+              <auto-scale-image 
+              aspect="16:16" 
+              
+              alt="Sample Dog"
+              max="400px 200px" 
+              fallback="https://via.placeholder.com/800x450?text=Image+Unavailable"
+              src="./images/demo/stuffed_suitcase.jpg"></auto-scale-image>
               <!-- {{ language === 'en' ?  -->
               "In our dashboard prototype, we faced a key trade-off: real-time updates vs. performance. Initial WebSocket-based real-time processing caused 2s latency at peak. We benchmarked and split data flows—stock trends stayed real-time, while ancillary data like historical comparisons were batch-updated every 5 minutes. This cut latency to 200ms and reduced AWS costs by 22%. On the UI side, we balanced modularity and speed: used React for flexibility, but lazy-loaded components to minimize bundle size." 
               <!-- :  -->
                <br/>
               "在仪表盘原型中，我们面临一个关键权衡：实时更新与系统性能。最初使用WebSocket进行全量实时处理，在高峰期导致2秒延迟。我们进行基准测试后决定：将关键数据（如股市趋势）保持实时，其它数据（如历史比较）每5分钟批处理一次。这将延迟降至200毫秒，AWS成本降低22%。前端方面，我们在灵活性与性能之间平衡：选用React实现模块化，并通过懒加载减少打包体积。" 
             <!-- }} -->
+           
+
+
             </td>
             <td>WebSockets, React, AWS Lambda, Batch Jobs, Lazy Loading</td>
           </tr>
-
-
+          
+         
         </tbody>
       </table>
     </div>
@@ -995,6 +1014,7 @@ Resume:
 <script src="./js/document-display.js"></script>
 <script src="./js/components/strategic-metaphor.js"></script>
 <script src="./js/libs/imageAnnotate.js"></script>
+<script type="module" src="./js/components/auto-scale-image.js"></script>
 <!-- <script src="./js/libs/vis-timeline-graph2d.min.js"></script> -->
 <!-- <script src="https://cdpn.io/cpe/boomboom/pen.js?key=pen.js-7be91697-d4b2-6915-eddb-7671ee8fea54" ></script> -->
 <script src="https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.min.js"></script>
