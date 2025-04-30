@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh">
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Add to <head> -->
+    <meta name="google" content="notranslate">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
   <title>张浩道：一场穿越诗歌与文明的旅程</title>
@@ -235,14 +236,12 @@
                     style="width: 100%; max-width: 150px; border-radius: 8px; border: 3px solid #fff;">
                   <p style="margin-top: 8px;">WeChat</p>
                 </div>
-
                 <!-- TiKTok QR Code -->
                 <div>
                   <img src="./images/tangerine.jpg" alt="WeChat QR Code"
                     style="width: 100%; max-width: 150px; border-radius: 8px; border: 3px solid #fff;">
                   <p style="margin-top: 8px;">Tiktok</p>
                 </div>
-
                 <!-- Email -->
                 <div style="display: flex; flex-direction: column; justify-content: center;">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -282,12 +281,7 @@
                     @xiaohongshu
                   </a>
                 </div>
-
-
-
-
               </div>
-
               <p style="
             font-size: 1em;
             line-height: 1.6;
@@ -301,9 +295,6 @@
               </p>
             </div>
           </div>
-
-
-
         </div>
       </div>
   </section>
@@ -315,7 +306,6 @@
       <p>周虽旧邦，其命维新。</p>
     </div>
   </section>
-
 
   <!-- ForceGraph3D Section -->
   <section class="force-graph-section">
@@ -447,7 +437,7 @@
       slider to view spread over time, hover for details.
     </p>
   </section>
-
+<!-- Poverity alivation Section -->
   <section class="journey parallax" id="chengdu" style="background-image: url('/images/sage_of_the_city.jpg');">
     <div class="content">
       <h2>人间成都：闲适的烟火气息</h2>
@@ -471,7 +461,7 @@
       </p>
     </div>
   </section>
-
+<!-- Teaching in Indonesia -->
   <section class="journey parallax" id="Indonesia" style="background-image: url('/images/sumatra_cocunt_garden.jpg');">
     <div class="content">
       <h2>Teaching in Indonesia</h2> <fancy-carousel auto-spin spin-interval="3000" images='[ 
@@ -488,38 +478,37 @@
 
 
 
-  <!-- Footer -->
-  <footer>
-    
+    <!-- Footer -->
+    <footer>
     <!-- <code-box></code-box> -->
     <h2 style="color:white;"></h2>
+    
     <!-- <input id="code"></input> -->
-     <p>Certifications & Documents</p>
+    <p>Certifications & Documents</p>
     <slide-toggle target="#content">Show content</slide-toggle>
     <div id="content" style="display:none;"> 
- 
+      <!-- Document section -->
       <document-viewer documents='[
         { "name": "TEFL Certificate.pdf", "url": "/documents/TEFL.pdf" },
         { "name": "Teaching Resume.pdf", "url": "/documents/Hasan_Seirafi_Teaching_Resume.pdf" }
       ]'></document-viewer>   
       
-      <mp4-player src="./video/Zhang-Haodao-Intro.mp4" 
+      <!-- Video Player Intro Video -->
+      <mp4-player 
+      src="./video/Zhang-Haodao-Intro.mp4" 
       autoplay muted 
-      preload="metadata"></mp4-player>
-   
+      preload="metadata">
+    </mp4-player>
     </div>
 
-
-
-<info-footer>
+    <info-footer>
     <div slot="contact-primary">
       <ul>
         <!-- <li>📞 +1 (949) 269 - 7413 </li> -->
         <li>📧 hseirafi@gmail.com.com</li>
         <li>📍 123 Teaching Street, Beijing</li>
       </ul>
-    </div>
-  
+    </div>  
     <div slot="certifications">
       <ul>
         <li>TEFL Certified</li>
@@ -527,18 +516,15 @@
         <li>CTAP Certified</li>
       </ul>
     </div>
-  
     <div slot="wechat-qr">
       WeChat-QR: <div id="wechat-qr" alt="WeChat QR Code"></div>
     </div>
-  
     <div slot="contact-secondary">
       <ul>
         <li>📱 WeChat ID: XuMiXuHui</li>
         <li id="website">🌐 </li>
       </ul>
     </div>
-  
     <div slot="copyright">
       <div slot="copyright">
         <p>© <span id="year"></span> 张浩道. 版权所有.</p>
@@ -548,44 +534,26 @@
       </script>
     </div>
     </div>
-  </info-footer>
-
-
-
-  </footer>
-
+    </info-footer>
   
-
-
-
-
-
-
-
-
-
-
-
-
+  </footer>
 
   <!-- GSAP Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-
-<script src="./js/libs/mp4-player.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-<script src="./js/components/info-footer.js"></script> 
-<script src="./js/components/slide-toggle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/libs/mp4-player.js"></script>
+  <script src="./js/components/info-footer.js"></script> 
+  <script src="./js/components/slide-toggle.js"></script>
   <script src="./js/components/contact-grid.js"></script>
   <script src="./js/fancy_carousel.js"></script>
   <script src="./js/document-display.js"></script>
   <script src="./data/d3.v7.min.js"></script>
   <script src="./data/3d-force-graph.js"></script>
-
   <script src="./data/gsap.min.js"></script>
   <script src="./data/ScrollTrigger.min.js"></script>
   <script src="./js/magic-number-forest.js"></script>
   
-
   <script type="module">
     const carousel = new FancyCarousel('.fancy-carousel', [
       './images/school_3.jpg',
@@ -593,12 +561,11 @@
       './images/school_5.jpg',
       './images/school_6.jpg',
       './images/school_7.jpg',
-
     ]);
-
   </script>
 
   <!-- ForceGraph3D Script -->
+
   <script type="module">
     import { createForceGraph } from './js/force-graph-module.js';
     const ForceGraphContainer = document.getElementById('force-graph-container');
@@ -606,6 +573,7 @@
   </script>
 
   <!-- Cartogram Script -->
+  
   <script type="module">
     import { createCartogram } from './js/cartogram-module.js';
     const CartogramContainer = document.getElementById('cartogram-container');
@@ -613,6 +581,7 @@
   </script>
 
   <!-- Tree Script -->
+  
   <script type="module">
     import { createCollapsibleTree } from './js/collapsible-tree-module.js';
     const CollapsibleTreeContainer = document.getElementById('collapsible-tree-container');
@@ -620,7 +589,6 @@
   </script>
 
   <script type="module">
-
     import { createDaoismFlowMap } from './js/daoism-flow-module.js';
     const container = document.getElementById('daoism-flow-container');
     createDaoismFlowMap(container);
@@ -638,15 +606,9 @@ new QRCode(document.getElementById("wechat-qr"), {
   colorLight: "#ffffff",
   correctLevel: QRCode.CorrectLevel.H
 });
+    </script>
+
   
-  </script>
-
-
-
-
-
-
-  <script src="js/main.js"></script>
 
   <script>
 
