@@ -12,7 +12,9 @@
   <link rel="stylesheet" href="css/styles.css">
   <link href="./css/playfair_display.css" rel="stylesheet">
   <link href="./css/ma_shan_zheng.css" rel="stylesheet">
+<style>
 
+</style>
 </head>
 
 <body>
@@ -499,6 +501,32 @@
       autoplay muted 
       preload="metadata">
     </mp4-player>
+
+  <markdown-renderer style="background-color: #fff;">
+      <select slot="files">
+       <option value="">Select a lession</option>
+       <option value="./curriculums/tang_era_poems/Tang_Examination_Poetry_Decoded.md">Tang Poetry Decoded</option>
+       <option value="./curriculums/tang_era_poems/a_tang_poet's_guide_to_modern_life_grade3to6.md">A guide to modern life by a Tang poet</option>
+       <option value="./curriculums/tang_era_poems/michelin_level_tang_cuisine.md">A tang era michelin cuisine</option>
+       <option value="./curriculums/tang_era_poems/Tang_Dynasty_Roast_Session.md">A tang dynasty roast session</option>
+       <option value="./curriculums/tang_era_poems/tang_kichen_nightmares.md">Tang dynasty kichen naightmares</option>
+       <option value="./curriculums/tang_era_poems/tang_poetry_ages_12_plus.md">Tang poems ages 12 +</option>
+       <option value="./curriculums/tang_era_poems/tang_spells_english_for_kids_3to5.md">Tang spells ages 3 to 5</option>
+       <option value="./curriculums/tang_era_poems/tang_spells_poetry_and_grammar.md">Tang spells poetry and grammar</option>
+       <option value="./curriculums/tang_era_poems/tang_yelp_reviews_in_history.md">Tang yelp reviews</option>
+       <option value="./curriculums/tang_era_poems/tang_food_critic_8th_century.md">Tang food critic 8th century</option>   
+        <!-- <option value="example2.md">Example 2</option> -->
+      </select>
+    </markdown-renderer>
+    <h1><a id="project-link"></a></h1>
+    <script> 
+    let element = document.getElementById('project-link')
+    element.setAttribute('href',
+      window.location.origin + '/mg.html');
+      element.innerText = 'Migration Project';
+    </script>
+
+
     </div>
 
     <info-footer>
@@ -534,13 +562,21 @@
       </script>
     </div>
     </div>
-    </info-footer>
-  
-  </footer>
-
+    </info-footer>  
+    
+     </footer>
+     
+ 
   <!-- GSAP Script -->
+  <!-- <script type="module">
+    import * as latexjs from 'https://unpkg.com/latex.js@0.12.6/dist/latex.mjs';
+  
+    window.latexjs = latexjs;
+  </script> -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="./js/components/markdown-renderer.js"></script>
   <script src="./js/main.js"></script>
   <script src="./js/libs/mp4-player.js"></script>
   <script src="./js/components/info-footer.js"></script> 
@@ -553,7 +589,7 @@
   <script src="./data/gsap.min.js"></script>
   <script src="./data/ScrollTrigger.min.js"></script>
   <script src="./js/magic-number-forest.js"></script>
-  
+  <script src="./js/components/latex.js"></script>
   <script type="module">
     const carousel = new FancyCarousel('.fancy-carousel', [
       './images/school_3.jpg',
@@ -594,7 +630,7 @@
     createDaoismFlowMap(container);
   </script>
 
-  <script type="module">
+<script type="module">
     import { createPovertyViz } from './js/poverty-viz-module.js';
     createPovertyViz(document.getElementById('poverty-viz-container'));
 
@@ -606,11 +642,8 @@ new QRCode(document.getElementById("wechat-qr"), {
   colorLight: "#ffffff",
   correctLevel: QRCode.CorrectLevel.H
 });
-    </script>
-
-  
-
-  <script>
+</script>
+<script>
 
     // --- CODE-BOX WEB COMPONENT ---
     class CodeBox extends HTMLElement {

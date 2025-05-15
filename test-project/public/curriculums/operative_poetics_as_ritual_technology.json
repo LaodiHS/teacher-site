@@ -1,0 +1,148 @@
+{
+    "course_title": "Operative Poetics as Ritual Technology",
+    "modules": [
+      {
+        "module_number": 1,
+        "module_title": "Visual Sacredness (Divine Determinatives)",
+        "language_focus": "Typography & Symbolism",
+        "student_demographics": {
+          "age": "10+ (scalable to adult learners)",
+          "proficiency": "Beginner to Advanced",
+          "frequency": "Flexible (standalone workshops or sequential units)",
+          "setting": "Classroom or ritual space",
+          "lesson_duration": "60-90 minutes"
+        },
+        "lessons": [
+          {
+            "lesson_plan": {
+              "time": "15 min",
+              "stage": "Preparation",
+              "phase": "Engage",
+              "objectives": {
+                "SWBAT": [
+                  "Recognize how symbols alter textual perception",
+                  "Activate subconscious associations with sacred typography"
+                ]
+              },
+              "instructions": [
+                "1. Show examples of ancient determinatives (𒀭, ☀️, @)",
+                "2. Brainstorm modern equivalents (emojis, Unicode sigils)",
+                "3. Demonstrate how to 'tag' mundane words as divine"
+              ],
+              "teacher_talk": [
+                "'How does adding 🌊 to 'river' change how you imagine it?'",
+                "'Why might ancient scribes have used special signs for gods?'"
+              ]
+            },
+            "practice_phase": {
+              "time": "25 min",
+              "stage": "Application",
+              "phase": "Activate",
+              "objectives": {
+                "SWBAT": [
+                  "Create glyph-enhanced poetry",
+                  "Perform texts with ritual vocalization"
+                ]
+              },
+              "instructions": [
+                "1. Students convert 3 sentences using emoji determinatives",
+                "2. Pair work: Exchange poems and vocalize symbols as logograms",
+                "3. Group chant of strongest example with synchronized gestures"
+              ],
+              "teacher_talk": [
+                "'Speak the 🦁 symbol as 'LION-SIGN' before reading the word'",
+                "'Feel how the glyph charges the word with different energy'"
+              ]
+            },
+            "assessment": {
+              "formative": [
+                "Accuracy in symbol-word pairings",
+                "Vocal conviction during performance"
+              ],
+              "summative": {
+                "criteria": [
+                  "Inventiveness of modern determinative system",
+                  "Ritual efficacy (peer reports of numinous feeling)"
+                ],
+                "rubric": "0-3 scale for symbolic potency"
+              }
+            },
+            "materials": [
+              "Cuneiform determinative charts",
+              "Unicode symbol cheat sheets",
+              "Gold/silver markers for sacred underlining"
+            ]
+          }
+        ]
+      },
+      {
+        "module_number": 2,
+        "module_title": "Ritual Repetition (Litany Structures)",
+        "language_focus": "Hypnotic Recursion",
+        "lessons": [
+          {
+            "lesson_plan": {
+              "time": "20 min",
+              "stage": "Immersion",
+              "phase": "Study",
+              "objectives": {
+                "SWBAT": [
+                  "Analyze Sumerian refrain patterns",
+                  "Identify trance-inducing syntactic structures"
+                ]
+              },
+              "instructions": [
+                "1. Play audio of Inana hymn refrains",
+                "2. Map the 'are yours' phrase recurrence",
+                "3. Timed breathing exercise synced to repetition"
+              ],
+              "teacher_talk": [
+                "'Count how many times your body relaxes on each refrain'",
+                "'Notice where the words start to bypass your conscious mind'"
+              ]
+            },
+            "ritual_protocol": {
+              "steps": [
+                {
+                  "action": "Circular breathing",
+                  "duration": "4-4-4 cycle",
+                  "purpose": "Oxygenate for trance state"
+                },
+                {
+                  "action": "Palms-up gesture",
+                  "timing": "On each refrain",
+                  "purpose": "Kinesthetic reinforcement"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "assessment_framework": {
+      "elementary": {
+        "focus": "Participation in symbolic play",
+        "metrics": [
+          "Willingness to perform vocalizations",
+          "Emoji selection creativity"
+        ]
+      },
+      "phd_level": {
+        "focus": "Neuro-linguistic impact analysis",
+        "metrics": [
+          "EEG readings during recitation",
+          "Semantic satiation thresholds"
+        ]
+      }
+    },
+    "differentiation_strategies": [
+      {
+        "adaptation": "For dyslexic students",
+        "modification": "Use tactile determinatives (engraved symbols)"
+      },
+      {
+        "adaptation": "Advanced practitioners",
+        "modification": "Add binaural beats to recitations"
+      }
+    ]
+  }
