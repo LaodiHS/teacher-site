@@ -486,23 +486,27 @@
     <h2 style="color:white;"></h2>
     
     <!-- <input id="code"></input> -->
-    <p>Certifications & Documents</p>
+    <!-- <p>Certifications & Documents</p> -->
     <slide-toggle target="#content">Show content</slide-toggle>
     <div id="content" style="display:none;"> 
       <!-- Document section -->
-      <document-viewer documents='[
+      <!-- <document-viewer documents='[
         { "name": "TEFL Certificate.pdf", "url": "/documents/TEFL.pdf" },
         { "name": "Teaching Resume.pdf", "url": "/documents/Hasan_Seirafi_Teaching_Resume.pdf" }
       ]'></document-viewer>   
-      
+       -->
       <!-- Video Player Intro Video -->
-      <mp4-player 
+      <!-- <mp4-player 
       src="./video/Zhang-Haodao-Intro.mp4" 
       autoplay muted 
       preload="metadata">
-    </mp4-player>
-
-  <markdown-renderer style="background-color: #fff;">
+    </mp4-player> -->
+ <!-- <video-grid>
+  <video src="./video/Zhang-Haodao-Intro.mp4"></video>
+  <video src="./video/passon_caused_by_the_moon.mp4"></video>
+  <!-- <video src="your-video-3.mp4"></video> -->
+</video-grid>  -->
+   <!-- <markdown-renderer style="background-color: #fff;">
       <select slot="files">
        <option value="">Select a fun lession</option>
        <option value="./curriculums/tang_era_poems/Tang_Examination_Poetry_Decoded.md">Tang Poetry Decoded</option>
@@ -517,14 +521,14 @@
        <option value="./curriculums/tang_era_poems/tang_food_critic_8th_century.md">Tang food critic 8th century</option>   
         <!-- <option value="example2.md">Example 2</option> -->
       </select>
-    </markdown-renderer>
-    <h1><a id="project-link"></a></h1>
+    </markdown-renderer> 
+    <!-- <h1><a id="project-link"></a></h1>
     <script> 
     let element = document.getElementById('project-link')
     element.setAttribute('href',
       window.location.origin + '/mg.html');
       element.innerText = 'Migration Project';
-    </script>
+    </script> --> -->
 
 
     </div>
@@ -578,6 +582,7 @@
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
   <script src="./js/components/markdown-renderer.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/components/video-grid.js"></script>
   <script src="./js/libs/mp4-player.js"></script>
   <script src="./js/components/info-footer.js"></script> 
   <script src="./js/components/slide-toggle.js"></script>
