@@ -350,7 +350,7 @@
 
   <!-- Collapsible Tree Section -->
   <section class="collapsible-tree-section">
-    <h2>中国古代王朝与神话 / Ancient Chinese Kingdoms and Myths (Requries Large Display)</h2>
+    <h2>中国古代王朝与神话 / Ancient Chinese Kingdoms and Myths (Requries Large Display)(hover over the nodes to see the legend/将鼠标悬停在节点上可查看图例)</h2>
     <div class="tree-wrapper"> <!-- Parent wrapper -->
       <div id="info-bar"></div> <!-- Information bar added here -->
       <div id="collapsible-tree-container"></div>
@@ -489,28 +489,29 @@
     <!-- <p>Certifications & Documents</p> -->
     <slide-toggle target="#content">Show content</slide-toggle>
     <div id="content" style="display:none;"> 
-      <!-- Document section -->
-      <!-- <document-viewer documents='[
-        { "name": "TEFL Certificate.pdf", "url": "/documents/TEFL.pdf" },
-        { "name": "Teaching Resume.pdf", "url": "/documents/Hasan_Seirafi_Teaching_Resume.pdf" }
-      ]'></document-viewer>   
-       -->
-      <!-- Video Player Intro Video -->
-      <!-- <mp4-player 
-      src="./video/Zhang-Haodao-Intro.mp4" 
+      
+       <!-- Video Player Intro Video -->
+    <h1 style="color: #3498db;">Introduction Video/介绍视频</h1>
+      <mp4-player 
+      src="/video/Zhang-Haodao-Intro.mp4" 
       autoplay muted 
       preload="metadata">
-    </mp4-player> -->
-  <video-grid style="height:500px;"> 
-  <video src="./video/coffie_shop_love.mp4"></video>
-  <video src="./video/ode_to_joy.mp4"></video>
-  <video src="./video/special_love_special_you.mp4"></video>
-  <video src="./video/passon_caused_by_the_moon.mp4"></video>
-   <video src="./video/longing_that_does_not_tire.mp4"></video>
-  <video src="./video/women_like_the_wind.mp4"></video>
-  <!-- <video src="your-video-3.mp4"></video> -->
-</video-grid>
-   <!-- <markdown-renderer style="background-color: #fff;">
+    </mp4-player>
+      
+      <!-- Document section -->
+       <document-viewer documents='[  
+        {"name": "Certificate to teach in China","url": "/documents/certificate_to_teach.pdf" },
+        { "name": "TEFL Certificate", "url": "/documents/TEFL.pdf" },
+        {"name": "Background Appostile Check", "url": "/documents/background_apostile.pdf" },
+        {"name": "degree appostile", "url": "/documents/degree_apostile.pdf" },
+        { "name": "Teaching Resume.pdf", "url": "/documents/Hasan_Seirafi_Teaching_Resume.pdf" }
+      ]'></document-viewer>   
+       
+    
+   
+<h1  style="color:white;">Some simple fun lessons I developed teaching chines culture in English./我开发的一些用英语教授中国文化的简单有趣的课程。 </h1>
+  </video-grid>
+    <markdown-renderer style="background-color: #fff;">
       <select slot="files">
        <option value="">Select a fun lession</option>
        <option value="./curriculums/tang_era_poems/Tang_Examination_Poetry_Decoded.md">Tang Poetry Decoded</option>
@@ -526,14 +527,25 @@
         <!-- <option value="example2.md">Example 2</option> -->
       </select>
     </markdown-renderer> 
-    <!-- <h1><a id="project-link"></a></h1>
+     <h1 style="color: #3498db;">Traditional Chines Songs and Dance/中国传统歌舞 </h1>
+  <video-grid style="height:1000px;overflow:auto;"> 
+
+  <video src="./video/coffie_shop_love.mp4"></video>
+  <video src="./video/ode_to_joy.mp4"></video>
+  <video src="./video/special_love_special_you.mp4"></video>
+  <video src="./video/passon_caused_by_the_moon.mp4"></video>
+   <video src="./video/longing_that_does_not_tire.mp4"></video>
+  <video src="./video/women_like_the_wind.mp4"></video>
+  <video src="./video/the_tarthest_you_are_my_nearest_love.mp4"></video>
+
+    <h1><a id="project-link"></a></h1>
     <script> 
     let element = document.getElementById('project-link')
     element.setAttribute('href',
       window.location.origin + '/mg.html');
       element.innerText = 'Migration Project';
-    </script> --> -->
-
+    </script> 
+ 
 
     </div>
 
