@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+  // Detect if the page is opened in WeChat
+  function isWeChat() {
+    return /MicroMessenger/i.test(navigator.userAgent);
+  }
+
+  // Redirect or show a popup
+  if (isWeChat()) {
+    alert("Please tap the ⋮ (menu) → 'Open in Browser' to view this page properly.");
+    // Or show a floating button:
+    document.body.innerHTML += `
+      <div style="position:fixed; bottom:20px; right:20px; background:#07C160; color:white; padding:10px; border-radius:5px; z-index:9999;">
+        <a href="https://your-website.com" style="color:white; text-decoration:none;">Open in Browser</a>
+      </div>
+    `;
+  }
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Add to <head> -->
@@ -749,23 +766,7 @@ new QRCode(document.getElementById("wechat-qr"), {
     if (!customElements.get("code-box")) customElements.define("code-box", CodeBox);
   </script>
   
-  <script>
-  // Detect if the page is opened in WeChat
-  function isWeChat() {
-    return /MicroMessenger/i.test(navigator.userAgent);
-  }
 
-  // Redirect or show a popup
-  if (isWeChat()) {
-    alert("Please tap the ⋮ (menu) → 'Open in Browser' to view this page properly.");
-    // Or show a floating button:
-    document.body.innerHTML += `
-      <div style="position:fixed; bottom:20px; right:20px; background:#07C160; color:white; padding:10px; border-radius:5px; z-index:9999;">
-        <a href="https://your-website.com" style="color:white; text-decoration:none;">Open in Browser</a>
-      </div>
-    `;
-  }
-</script>
 
   
 </body>
