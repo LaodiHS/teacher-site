@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Add to <head> -->
     <meta name="google" content="notranslate">
-
+<meta property="og:title" content="Hasan Seirafi (强浩道) - Professional English Teacher">
+<meta property="og:description" content="Hasan Seirafi (强浩道) is a professional English teacher with over 12 years of experience in innovative, student-centered education. Specializing in evidence-based teaching methods, he focuses on enhancing student engagement and language acquisition.">
+<meta property="og:image" content="https://hao-dao.onrender.com/image.jpg">
+<meta property="og:url" content="https://hao-dao.onrender.com">
+<meta property="og:type" content="website">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
   <title>张浩道：一场穿越诗歌与文明的旅程</title>
@@ -247,7 +251,7 @@
                 </div>
                 <!-- Email -->
                 <div style="display: flex; flex-direction: column; justify-content: center;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     style="margin: 0 auto 10px;">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -260,7 +264,7 @@
 
                 <!-- Twitter/X -->
                 <!-- <div style="display: flex; flex-direction: column; justify-content: center;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 10px;">
+              <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 10px;">
                 <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
               </svg>
               <a href="https://twitter.com/HasanS" 
@@ -272,7 +276,7 @@
 
                 <!-- RedNote -->
                 <div style="display: flex; flex-direction: column; justify-content: center;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#ff0000"
+                  <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#ff0000"
                     style="margin: 0 auto 10px;">
                     <path
                       d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
@@ -745,7 +749,23 @@ new QRCode(document.getElementById("wechat-qr"), {
     if (!customElements.get("code-box")) customElements.define("code-box", CodeBox);
   </script>
   
-  
+  <script>
+  // Detect if the page is opened in WeChat
+  function isWeChat() {
+    return /MicroMessenger/i.test(navigator.userAgent);
+  }
+
+  // Redirect or show a popup
+  if (isWeChat()) {
+    alert("Please tap the ⋮ (menu) → 'Open in Browser' to view this page properly.");
+    // Or show a floating button:
+    document.body.innerHTML += `
+      <div style="position:fixed; bottom:20px; right:20px; background:#07C160; color:white; padding:10px; border-radius:5px; z-index:9999;">
+        <a href="https://your-website.com" style="color:white; text-decoration:none;">Open in Browser</a>
+      </div>
+    `;
+  }
+</script>
 
   
 </body>
