@@ -23,6 +23,9 @@ class Mp4Player extends HTMLElement {
           background: black;
           position: relative;
           font-family: sans-serif;
+        overflow: hidden;
+
+      height:1200px
         }
 
         video {
@@ -30,6 +33,8 @@ class Mp4Player extends HTMLElement {
           height: auto;
           display: block;
           background: black;
+          
+         
         }
 
         .controls {
