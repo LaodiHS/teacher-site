@@ -197,8 +197,7 @@
   <div id="app">
     <!-- Language Switcher -->
     <div class="language-switcher">
-        <ion-segment v-model="language">
-
+      <ion-segment v-model="language" @ionChange="changeLanguage">
         <ion-segment-button value="en">
           <ion-label>English</ion-label>
         </ion-segment-button>
@@ -210,7 +209,7 @@
 
     <!-- Hero Section -->
     <section class="hero-section animate__animated animate__fadeIn">
-      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile" class="profile-avatar">
+      <img src="./images/profile_pic_hasan.PNG" alt="Profile" class="profile-avatar">
       <h1 class="animate__animated animate__fadeInUp">{{ translations.heroTitle[language] }}</h1>
       <p class="animate__animated animate__fadeInUp animate__delay-1s">{{ translations.heroSubtitle[language] }}</p>
       <ion-button class="animate__animated animate__fadeInUp animate__delay-2s" fill="solid" color="primary" @click="scrollTo('about')">
@@ -487,7 +486,9 @@
         // Language management
         const language = ref('en');
         
+        // Fix: update language on ionChange event
         const changeLanguage = (ev) => {
+          // For Ionic Vue, ev.detail.value gives the selected value
           language.value = ev.detail.value;
         };
         
