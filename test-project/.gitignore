@@ -1,3 +1,5 @@
 package-lock.json
 yarn.lock
 node_modules
+public/video/video_crop_2mov
+video/video_crop_2mov
